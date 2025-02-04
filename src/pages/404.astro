@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title=`404 | RCM CODES`>
+  <div class="hero grid h-screen place-content-center px-4">
+    <div class="z-20 text-center">
+      <h1
+        class="text-9xl font-black bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50"
+      >
+        404
+      </h1>
+
+      <p class="text-2xl font-bold tracking-tight text-neutral-200 sm:text-4xl">
+        Uh-oh!
+      </p>
+
+      <p class="mt-4 text-neutral-200">
+        We can't find that page. You are all <span class="font-bold">alone</span
+        > here.
+      </p>
+
+      <a
+        href="/"
+        class="inline-flex transition-all border-neutral-700 hover:border-opacity-0 border-opacity-50 shadow rounded-md border backdrop-blur-xl bg-neutral-400/10 px-3 py-2.5 items-center text-white font-semibold group p-2 text-sm gap-x-2 mt-4"
+      >
+        Go Back Home
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<style scoped>
+  .hero {
+    background-image: url(/pattern.svg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    overflow-y: visible;
+    overflow-x: clip;
+  }
+</style>
