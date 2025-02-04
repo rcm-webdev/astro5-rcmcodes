@@ -7,7 +7,7 @@ export const EXPERIENCE: ExperienceProp[] = [
     company: "100devs",
     companyUrl: "https://100devs.org/",
     description:
-      "At 100devs, I developed and maintained client projects using industry-standard technologies, focusing on creating robust and scalable web applications. I collaborated closely with designers to deliver pixel-perfect layouts and seamless user experiences, ensuring high-quality and user-friendly solutions.",
+      "At 100devs, I develop and maintain client projects using industry-standard technologies. Continue developing my skills and engineering automation solutions for our team, freeing us to focus on more impactful work.",
     technologies: [
       "MERN",
       "Custom APIs",
@@ -25,9 +25,8 @@ export const EXPERIENCE: ExperienceProp[] = [
     company: "RMC & Associates ",
     companyUrl: "/",
     description:
-      "At RMC & Associates, I contribute as part of the back-end team, delivering customized web development solutions for small to medium-sized businesses. I focus on building efficient server-side logic, integrating custom APIs, and ensuring seamless database management with both relational and NoSQL databases. While collaborating with the front-end team, I support the development of responsive designs implemented with Tailwind CSS.",
+      "At RMC & Associates, I work on the back end, delivering and maintaining solutions for small—to medium-sized businesses. I have recently been building multiple web applications integrating RESTful APIs and MongoDB. ",
     technologies: [
-      "Astro",
       "JavaScript",
       "TypeScript",
       "Postman",
