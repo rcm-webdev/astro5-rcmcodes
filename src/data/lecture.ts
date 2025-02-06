@@ -6,7 +6,7 @@ export const LECTURE: LectureProp[] = [
     title: "MVC Simplified",
     lectureUrl: "https://100devs.org/",
     description:
-      "On 10/23/2023, presented a lecture that covered the Model-View-Controller (MVC) pattern, highlighting its role in building scalable, maintainable web applications. It emphasized how separating concerns into models, views, and controllers results in cleaner, more efficient, and flexible code, ultimately improving code organization and maintainability.",
+      "I have a lecture that covered the Model-View-Controller (MVC) design pattern. Presentation shared with an online community.",
     topics: [
       "Model-View-Controller (MVC)",
       "Express",
