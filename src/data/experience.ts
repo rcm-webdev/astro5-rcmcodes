@@ -23,7 +23,7 @@ export const EXPERIENCE: ExperienceProp[] = [
     company: "Spokane Eye Clinic",
     companyUrl: "https://www.spokaneeye.com/",
     description:
-      "At SEC, I am building a LMS (learning management system) to help with onboarding new technicians, reducing time in the classroom and increase time on the floor practicing their new skills.",
+      "At SEC, I'm building a Learning Management System (LMS) to streamline technician onboarding by reducing classroom time and increasing hands-on training on the floor.",
     technologies: ["Next.js", "Auth.js", "React"],
     logo: "/logos/sec.webp",
   },
