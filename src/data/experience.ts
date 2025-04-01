@@ -31,11 +31,11 @@ export const EXPERIENCE: ExperienceProp[] = [
   {
     dates: "June 2020 — Present",
     title: "Software Engineer",
-    company: "RC Communications ",
+    company: "Twin Rocks Web Developement",
     companyUrl: "/",
     description:
-      "At RC Communcations, I work on delivering and maintaining back-end solutions for small—to medium-sized businesses.  ",
+      "At TR, I work on delivering and maintaining back-end solutions for small—to medium-sized businesses.  ",
     technologies: ["JavaScript", "Freelance"],
-    logo: "/logos/rm.webp",
+    logo: "/logos/twin_rocks-1.webp",
   },
 ];
