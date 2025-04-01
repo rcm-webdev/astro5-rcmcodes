@@ -22,10 +22,10 @@ export const EXPERIENCE: ExperienceProp[] = [
   {
     dates: "June 2020 — Present",
     title: "Software Engineer",
-    company: "RMC & Associates ",
+    company: "RC Communications ",
     companyUrl: "/",
     description:
-      "At RMC & Associates, I work on the back end, delivering and maintaining solutions for small—to medium-sized businesses. I have recently been building multiple web applications integrating RESTful APIs and MongoDB. ",
+      "At RC Communcations, I worked on delivering and maintaining back-end solutions for small—to medium-sized businesses.  ",
     technologies: [
       "JavaScript",
       "TypeScript",
