@@ -2,30 +2,30 @@ import type { Props as ProjectProp } from "../components/projects/props";
 
 export const PROJECTS: ProjectProp[] = [
   {
-    title: "Purestyle",
+    title: "TransposeRx",
     type: "Front-End",
-    projectUrl: "https://purestylesalon.netlify.app/",
+    projectUrl: "https://transposerx.netlify.app/",
     description:
-      "I worked as a front-end developer on this project. It is a salon website with features like viewing services and contact form.",
-    tags: ["HTML/CSS", "Bootstrap", "Netlify"],
-    logo: "/logos/purestyle.webp",
+      "Designed and developed a lightweight web application to help ophthalmic technicians instantly transpose patients' glasses prescriptions.",
+    tags: ["React", "DaisyUI"],
+    logo: "/logos/transposerx.gif",
   },
   {
-    title: "qrDev",
+    title: "Technician's Bootcamp",
     type: "Full-Stack",
-    projectUrl: "/",
+    projectUrl: "https://github.com/rcm-webdev/",
     description:
-      " A full-stack web app for developers to create and share their portfolio using QR codes. It has features like authentication, image upload and QR code generation.",
-    tags: ["MongoDB", "Express", "Cloudinary", "Node", "Tailwind", "EJS"],
+      "Building a full-stack LMS for ophthalmic technicians. Features include authentication, image upload and note taking. Future updates: AI notes and quiz functionality.",
+    tags: ["Next.js", "MongoDB", "Cloudinary", "Auth.js"],
     logo: "/logos/coming_soon.webp",
   },
   {
-    title: "qrBuddy",
+    title: "IntelFlow",
     type: "Full-Stack",
-    projectUrl: "https://github.com/rcm-webdev/qr-buddy",
+    projectUrl: "https://github.com/rcm-webdev/",
     description:
-      "A full-stack inventory management system that helps you organize storage boxes with QR codes.",
-    tags: ["MongoDB", "Express", "Node", "EJS", "API"],
+      "A no-code visual interface that lets users create a pipeline of AI tasks (like image input → object detection → alert) using a drag-and-drop interface. Workflows can be saved, tested, and edited.",
+    tags: ["React", "MongoDB", "Express", "Cloudinary", "HuggingFace API"],
     logo: "/logos/coming_soon.webp",
   },
 ];
