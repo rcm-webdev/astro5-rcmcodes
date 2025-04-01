@@ -9,14 +9,23 @@ export const EXPERIENCE: ExperienceProp[] = [
     description:
       "At 100devs, I develop and maintain client projects using industry-standard technologies. Continue developing my skills and engineering automation solutions for our team, freeing us to focus on more impactful work.",
     technologies: [
-      "MERN",
-      "Custom APIs",
       "Next.js",
       "TypeScript",
       "Tailwind",
-      "Remote Work",
+      "Agency Work",
+      "Remote",
     ],
     logo: "/logos/101devs.webp",
+  },
+  {
+    dates: "August 2022 — Present",
+    title: "Software Engineer",
+    company: "Spokane Eye Clinic",
+    companyUrl: "https://www.spokaneeye.com/",
+    description:
+      "At SEC, I am building a LMS (learning management system) to help with onboarding new technicians, reducing time in the classroom and increase time on the floor practicing their new skills.",
+    technologies: ["Next.js", "Auth.js", "React"],
+    logo: "/logos/sec.webp",
   },
 
   {
@@ -25,14 +34,8 @@ export const EXPERIENCE: ExperienceProp[] = [
     company: "RC Communications ",
     companyUrl: "/",
     description:
-      "At RC Communcations, I worked on delivering and maintaining back-end solutions for small—to medium-sized businesses.  ",
-    technologies: [
-      "JavaScript",
-      "TypeScript",
-      "Postman",
-      "MERN",
-      "Remote Work",
-    ],
+      "At RC Communcations, I work on delivering and maintaining back-end solutions for small—to medium-sized businesses.  ",
+    technologies: ["JavaScript", "Freelance"],
     logo: "/logos/rm.webp",
   },
 ];
