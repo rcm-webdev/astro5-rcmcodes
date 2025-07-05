@@ -8,60 +8,67 @@ const { title, projectUrl, description, tags, logo, type } = Astro.props;
 
 <li class="group mb-3 sm:mb-8 last:mb-0">
   <section
-    class="overflow-hidden sm:pr-8 sm:h-[20rem] relative transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50 hover:backdrop-blur-sm duration-500 sm:grid sm:grid-cols-8 sm:gap-8 md:gap-4"
+    class="overflow-hidden relative transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50 duration-500 
+           sm:pr-8 sm:h-[20rem] sm:grid sm:grid-cols-8 sm:gap-8 md:gap-4
+           md:h-[24rem] md:grid-cols-1 md:gap-0 md:cursor-pointer"
   >
     <div
       class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-neutral-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"
     >
     </div>
-    <div
-      class="py-4 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[65%] sm:col-start-1 flex flex-col h-full sm:col-span-6 sm:group-even:col-start-6 sm:group-even:max-w-full"
-    >
-      <h3 class="z-10 font-medium leading-snug text-neutral-200">
-        <div>
-          <a
-            href={projectUrl}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={title}
-          >
-            <span
-              class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"
-            ></span>
-            <span class="flex gap-x-2 items-center">
-              {title}
-              <IconArrow />
-            </span></a
-          >
-        </div>
-        <p class="mt-2 text-sm leading-normal">{description}</p>
-        {
-          tags.length && (
-            <ul class="mt-2 flex flex-wrap" aria-label="tags">
-              {tags.map((tag) => (
-                <li class="mr-1.5 mt-2">
-                  <div class="flex items-center backdrop-blur-sm rounded-full border border-neutral-700 border-opacity-50 shadow bg-neutral-400/10 px-3 py-1 text-xs font-medium leading-5 text-neutral-300">
-                    {tag}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )
-        }
-      </h3>
+    
+    <!-- Image - positioned differently on small vs large screens -->
+    <div class="hidden sm:block sm:absolute sm:top-8 sm:-right-40 sm:w-[28.25rem] sm:rounded-t-lg sm:overflow-hidden sm:group-even:-left-40 sm:transition-all sm:duration-700 sm:ease-out sm:group-hover:scale-110 sm:group-hover:z-10
+                md:static md:inset-0 md:w-full md:h-full md:rounded-lg md:group-hover:scale-105 md:z-10">
+      <img
+        src={logo}
+        alt={title}
+        class="w-full h-full object-cover transition-transform duration-700 ease-out sm:group-hover:scale-105"
+      />
     </div>
 
-    <img
-      src={logo}
-      alt={title}
-      class="hidden md:block absolute top-8 -right-40 w-[28.25rem] rounded-t-lg transition
-              group-hover:scale-[1.04]
-              group-hover:-translate-x-3
-              group-hover:translate-y-3
-              group-hover:-rotate-2
-              group-even:group-hover:translate-x-3
-              group-even:group-hover:translate-y-3
-              group-even:group-hover:rotate-2 group-even:-left-40"
-    />
+    <!-- Text content - visible on small screens, overlay on larger screens -->
+    <div
+      class="py-4 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[65%] sm:col-start-1 flex flex-col h-full sm:col-span-6 sm:group-even:col-start-6 sm:group-even:max-w-full
+             md:absolute md:inset-0 md:z-30 md:max-w-none md:p-8 md:bg-gradient-to-t md:from-black/90 md:via-black/50 md:to-transparent 
+             md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-500 md:backdrop-blur-sm
+             md:justify-end md:pointer-events-none"
+    >
+      <div class="md:pointer-events-auto">
+        <h3 class="z-10 font-medium leading-snug text-neutral-200 md:text-white">
+          <div>
+            <a
+              href={projectUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={title}
+              class="md:pointer-events-auto"
+            >
+              <span
+                class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"
+              ></span>
+              <span class="flex gap-x-2 items-center md:text-2xl">
+                {title}
+                <IconArrow />
+              </span></a
+            >
+          </div>
+          <p class="mt-2 text-sm leading-normal md:text-base md:text-neutral-200">{description}</p>
+          {
+            tags.length && (
+              <ul class="mt-2 flex flex-wrap" aria-label="tags">
+                {tags.map((tag) => (
+                  <li class="mr-1.5 mt-2">
+                    <div class="flex items-center backdrop-blur-sm rounded-full border border-neutral-700 border-opacity-50 shadow bg-neutral-400/10 px-3 py-1 text-xs font-medium leading-5 text-neutral-300 md:bg-white/20 md:text-white md:border-white/30">
+                      {tag}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )
+          }
+        </h3>
+      </div>
+    </div>
   </section>
 </li>

@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  class?: string;
+  opacity?: string;
+}
+
+const { class: className = "my-8", opacity = "opacity-60" } = Astro.props;
+---
+
+<div class={`flex justify-center ${className}`}>
+  <Image
+    src="/svg/arrow.svg"
+    alt="Section divider"
+    class={`w-16 h-8 rotate-180 ${opacity}`}
+    width={64}
+    height={32}
+  />
+</div> 

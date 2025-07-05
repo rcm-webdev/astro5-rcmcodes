@@ -8,6 +8,9 @@ import { SOCIALS } from "../data/socials";
 import { LECTURE } from "../data/lecture";
 import { PROJECTS } from "../data/projects";
 import Layout from "../layouts/Layout.astro";
+import LogoWall from "../components/logoWall.astro";
+import ArrowDivider from "../components/ArrowDivider.astro";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="RCM CODES">
@@ -19,31 +22,34 @@ import Layout from "../layouts/Layout.astro";
         <header
           class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24"
         >
-          <div
-            class="flex lg:items-start gap-4 flex-col lg:flex-row items-center text-center lg:text-left"
-          >
-            <img
+          <div class="flex flex-col items-center text-center gap-6">
+            <!-- Profile Image -->
+              <Image
               src="/profile.webp"
               alt="Roberto Murillo"
               class="w-40 h-40 object-cover rounded-full"
+              width={160}
+              height={160}
+              loading="lazy"
             />
-            <div>
+            
+            <!-- Name and Titles -->
+            <div class="flex flex-col items-center gap-2">
+              <p class="text-sm lg:text-lg font-medium text-neutral-200/60 py-1 px-3 rounded-full bg-neutral-400/10">Hi, I'm Roberto Murillo</p>
               <a
                 href="/"
-                class="text-4xl lg:text-5xl block font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50"
+                class="text-3xl lg:text-4xl block font-medium tracking-tight"
               >
-                <h1>Roberto Murillo</h1>
+                <h2>Full Stack Software Engineer</h2>
               </a>
-              <h2
-                class="bg-gradient-to-r from-[#000000] to-[#434343] mt-2 text-sm lg:text-lg font-bold text-neutral-200 py-1 px-3 rounded-full text-center"
-              >
-                Full Stack Software Engineer
-              </h2>
+            </div>
 
+            <!-- Call to Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-3 items-center">
               <a
                 data-ccursor
                 href="mailto:rcmcodes@gmail.com "
-                class="inline-flex transition-all border-neutral-700 hover:border-opacity-0 border-opacity-50 shadow rounded-md border backdrop-blur-xl bg-neutral-400/10 px-3 py-2.5 items-center text-white font-semibold group p-2 text-sm gap-x-2 mt-4"
+                class="inline-flex transition-all border-neutral-700 hover:border-opacity-0 border-opacity-50 shadow rounded-md border backdrop-blur-xl bg-neutral-400/10 px-3 py-2.5 items-center text-white font-semibold group p-2 text-sm gap-x-2"
               >
                 <span>Email Me</span>
                 <span
@@ -56,7 +62,7 @@ import Layout from "../layouts/Layout.astro";
                 data-ccursor
                 href="https://cal.com/rcmcodes"
                 target="_blank"
-                class="inline-flex transition-all border-neutral-700 hover:border-opacity-0 border-opacity-50 shadow rounded-md border backdrop-blur-xl bg-neutral-400/10 px-3 py-2.5 items-center text-white font-semibold group p-2 text-sm gap-x-2 mt-4"
+                class="inline-flex transition-all border-neutral-700 hover:border-opacity-0 border-opacity-50 shadow rounded-md border backdrop-blur-xl bg-neutral-400/10 px-3 py-2.5 items-center text-white font-semibold group p-2 text-sm gap-x-2"
               >
                 <span>Schedule a Call</span>
                 <span
@@ -65,37 +71,70 @@ import Layout from "../layouts/Layout.astro";
                 </span>
               </a>
             </div>
-          </div>
+            
+            <!-- Logo Wall -->
+            <div class="mt-4 w-full max-w-sm">
+              <LogoWall />
+            </div>
 
-          {
-            SOCIALS.length && (
-              <ul
-                class="mt-8 flex items-center justify-center lg:justify-normal gap-x-5"
-                aria-label="Social media"
-              >
-                {SOCIALS.map((social) => (
-                  <li class="text-xs p-2 rounded" data-ccursor>
-                    <a
-                      class="block hover:text-slate-200"
-                      href={social.url}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      aria-label={`${social.name} (opens in a new tab)`}
-                    >
-                      <span class="sr-only">{social.name}</span>
-                      {<Component component={social.icon} />}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )
-          }
+            <!-- Social Icons -->
+            {
+              SOCIALS.length && (
+                <ul
+                  class="mt-4 flex items-center justify-center gap-x-5"
+                  aria-label="Social media"
+                >
+                  {SOCIALS.map((social) => (
+                    <li class="text-xs p-2 rounded" data-ccursor>
+                      <a
+                        class="block hover:text-slate-200"
+                        href={social.url}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        aria-label={`${social.name} (opens in a new tab)`}
+                      >
+                        <span class="sr-only">{social.name}</span>
+                        {<Component component={social.icon} />}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )
+            }
+          </div>
         </header>
 
         <main id="content" class="pt-24 lg:w-1/2 lg:py-24">
+          <!-- Introduction Section -->
+          <section
+            id="introduction"
+            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-4 lg:scroll-mt-24 "
+            aria-label="Introduction"
+          >
+          <div
+              class="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+            >
+              <h2
+                class="text-sm font-bold uppercase tracking-widest text-neutral-200 lg:sr-only"
+              >
+                Introduction
+              </h2>
+            </div>
+            <div>
+              <div>
+                <p class="text-lg font-medium">
+                  I'm a full stack <span class="shiny-sec">software engineer</span> and <span class="shiny-sec">machine learning researcher</span> transforming ideas into interactive and seamless digital experiences with cutting-edge technologies.
+                </p>
+              </div>
+          </section>
+
+          <!-- Section Divider -->
+          <ArrowDivider />
+
+          <!-- About Me Section -->
           <section
             id="about"
-            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-4 lg:scroll-mt-18"
             aria-label="About me"
           >
             <div
@@ -109,39 +148,32 @@ import Layout from "../layouts/Layout.astro";
             </div>
             <div>
               <div class="mb-4 space-y-4">
+                
                 <p>
-                  I'm a full-stack software engineer based in Washington State.
-                  After earning my B.S. in Biochemistry, I spent over 2.5 years
-                  serving my community as an ophthalmic technician at a local
-                  eye clinic. During my time there, I taught myself full-stack
-                  web development and built tools that improved technicians'
-                  workflows. That experience sparked a more profound passion for
-                  building solutions that make life easier. As my current side
-                  project, I'm building a learning management system to
-                  streamline technician onboarding by reducing classroom time
-                  and increasing hands-on training.<br />
-                  <br />
-                  Today, I work with 100Devs, a development agency where I collaborate
+                  After earning my B.S. in Biochemistry, I spent over 2.5 years serving my community as an ophthalmic technician at a local eye clinic. During my time there, I taught myself full-stack web development and built tools that improved technicians' workflows. That experience sparked a more profound passion for building solutions that make life easier. Of recent, I started to build a learning management system to streamline technician onboarding by reducing classroom time and increasing hands-on training.
+                  
+                  <!-- Today, I work with 100Devs, a development agency where I collaborate
                   with developers globally. Thus far, I have shipped multiple full-stack
                   applications independently and in cross-functional teams. As well
                   as successfully delivered production-ready web applications for
                   several paid clients, aligning closely with their business goals
-                  and user needs.<br />
+                  and user needs.<br /> -->
                 </p>
                 <p>
                   I am always open to new opportunities and look forward to
-                  joining a team that values innovation and collaboration. As I
-                  continue to develop my skills and create efficient solutions
-                  that can make an impact, I will be a valuable asset to the
-                  team.
+                  joining a team that values innovation and collaboration. 
                 </p>
               </div>
             </div>
           </section>
+
+          <!-- Section Divider -->
+          <ArrowDivider />
+
           <!-- Experience -->
           <section
             id="experience"
-            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-4 lg:scroll-mt-24"
             aria-label="Work experience"
           >
             <div
@@ -158,10 +190,14 @@ import Layout from "../layouts/Layout.astro";
               </ol>
             </div>
           </section>
+
+          <!-- Section Divider -->
+          <ArrowDivider />
+
           <!-- Speaking Engagements -->
           <section
             id="lecture"
-            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-4 lg:scroll-mt-24"
             aria-label="Lectures"
           >
             <div
@@ -179,6 +215,10 @@ import Layout from "../layouts/Layout.astro";
               </ol>
             </div>
           </section>
+
+          <!-- Section Divider -->
+          <ArrowDivider />
+
           <!-- Featured Projects -->
           <section
             id="applications"
@@ -281,6 +321,25 @@ import Layout from "../layouts/Layout.astro";
     background-repeat: no-repeat;
     overflow-y: visible;
     overflow-x: clip;
+  }
+
+  .shiny-sec {
+    background: linear-gradient(135deg, #a476ff 25%, #eee5ff 50%, #a476ff 75%);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 3s linear infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: 100% 50%;
+    }
+    30%,
+    70% {
+      background-position: 0% 50%;
+    }
   }
 
   /*
