@@ -13,10 +13,38 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Full Stack Software Engineer based in Spokane, WA. " />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Roberto Murillo - Full Stack Software Engineer & Machine Learning Researcher. Building interactive digital experiences with cutting-edge technologies. Expert in React, TypeScript, Node.js, and modern web development." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/webp" href="/favicon.webp" />
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="Roberto Murillo, Full Stack Developer, Software Engineer, Machine Learning, React, TypeScript, Node.js, Web Development, JavaScript, Python, rcmcodes" />
+    <meta name="author" content="Roberto Murillo" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://rcmcodes.com/" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Roberto Murillo - Full Stack Software Engineer | rcmcodes" />
+    <meta property="og:description" content="Full Stack Software Engineer & Machine Learning Researcher transforming ideas into interactive digital experiences. Expert in React, TypeScript, and modern web technologies." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rcmcodes.com/" />
+    <meta property="og:image" content="https://rcmcodes.com/profile.webp" />
+    <meta property="og:image:alt" content="Roberto Murillo - Full Stack Software Engineer" />
+    <meta property="og:site_name" content="rcmcodes" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Roberto Murillo - Full Stack Software Engineer | rcmcodes" />
+    <meta name="twitter:description" content="Full Stack Software Engineer & Machine Learning Researcher transforming ideas into interactive digital experiences." />
+    <meta name="twitter:image" content="https://rcmcodes.com/profile.webp" />
+    <meta name="twitter:image:alt" content="Roberto Murillo - Full Stack Software Engineer" />
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#000000" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -43,13 +71,13 @@ const { title } = Astro.props;
     class="bg-black leading-relaxed text-neutral-200 tracking-wide antialiased selection:bg-neutral-300 selection:text-neutral-900 z-10 relative"
   >
     <SparklesCore
-      client:idle
+      client:visible
       id="tsparticlesfullpage"
       background="transparent"
       minSize={0.6}
       maxSize={1.4}
       opacity={0.2}
-      particleDensity={100}
+      particleDensity={30}
       className="w-full h-full fixed z-0"
       particleColor="#FFFFFF"
     />
