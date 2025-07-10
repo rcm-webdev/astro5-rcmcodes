@@ -26,11 +26,13 @@ import { Image } from "astro:assets";
             <!-- Profile Image -->
               <Image
               src="/profile.webp"
-              alt="Roberto Murillo"
+              alt="Roberto Murillo - Full Stack Software Engineer"
               class="w-40 h-40 object-cover rounded-full"
               width={160}
               height={160}
-              loading="lazy"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
             />
             
             <!-- Name and Titles -->
