@@ -1,0 +1,29 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Form submission settings
+[[plugins]]
+  package = "@netlify/plugin-functions"
+
+# Redirect rules for form submissions
+[[redirects]]
+  from = "/partner-success"
+  to = "/partner/success"
+  status = 200
+
+# Handle form submissions
+[[redirects]]
+  from = "/partner"
+  to = "/partner/success"
+  status = 302
+  conditions = {Role = ["form-submission"]}
+
+# Catch-all redirect for SPA behavior
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200 

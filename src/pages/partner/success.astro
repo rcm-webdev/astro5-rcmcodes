@@ -1,0 +1,117 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Thank You - Partnership Inquiry Submitted | RCM CODES">
+  <div class="relative z-10">
+    <div class="mx-auto min-h-screen max-w-screen-2xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24">
+      
+      <!-- Success Message Section -->
+      <section class="min-h-screen flex items-center justify-center">
+        <div class="text-center space-y-8 max-w-3xl mx-auto">
+          <!-- Success Icon -->
+          <div class="w-24 h-24 bg-gradient-to-br from-emerald-500 to-lime-400 rounded-full mx-auto flex items-center justify-center">
+            <svg class="w-12 h-12 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+
+          <!-- Main Heading -->
+          <div class="space-y-4">
+            <h1 class="text-4xl lg:text-6xl font-bold text-white tracking-tight">
+              Message Received!
+            </h1>
+            <p class="text-xl lg:text-2xl text-neutral-300 leading-relaxed">
+              Thank you for reaching out. I've received your partnership inquiry and I'm excited to learn more about your project.
+            </p>
+          </div>
+
+          <!-- What's Next Section -->
+          <div class="bg-neutral-900/50 backdrop-blur-sm rounded-3xl p-8 border border-neutral-800 text-left">
+            <h2 class="text-2xl font-bold text-white mb-6 text-center">What happens next?</h2>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span class="text-black font-bold text-sm">1</span>
+                </div>
+                <div>
+                  <h3 class="text-white font-semibold mb-1">Quick Response</h3>
+                  <p class="text-neutral-300">I'll review your inquiry and respond within 24-48 hours with initial thoughts and next steps.</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-4">
+                <div class="w-8 h-8 bg-lime-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span class="text-black font-bold text-sm">2</span>
+                </div>
+                <div>
+                  <h3 class="text-white font-semibold mb-1">Discovery Call</h3>
+                  <p class="text-neutral-300">We'll schedule a free 30-minute consultation to discuss your project requirements and goals.</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-4">
+                <div class="w-8 h-8 bg-emerald-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span class="text-black font-bold text-sm">3</span>
+                </div>
+                <div>
+                  <h3 class="text-white font-semibold mb-1">Custom Proposal</h3>
+                  <p class="text-neutral-300">You'll receive a detailed proposal with timeline, deliverables, and transparent pricing.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Info & Actions -->
+          <div class="space-y-6">
+            <div class="text-center">
+              <p class="text-neutral-400 mb-4">Need to reach me urgently?</p>
+              <a href="mailto:rcmcodes@gmail.com?subject=Hey 👋 I'm interested in partnering up with you, let's talk!" class="inline-flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                rcmcodes@gmail.com
+              </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/" class="bg-gradient-to-r from-emerald-500 to-lime-400 text-black px-8 py-4 rounded-xl font-semibold hover:from-emerald-600 hover:to-lime-500 transition-all duration-300 text-center">
+                Back to Homepage
+              </a>
+              <a href="/partner" class="bg-neutral-800 hover:bg-neutral-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors duration-300 text-center">
+                Submit Another Inquiry
+              </a>
+            </div>
+          </div>
+
+          <!-- Social Proof -->
+          <div class="pt-8 border-t border-neutral-800">
+            <p class="text-neutral-400 text-sm mb-4">Join other successful partnerships</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 max-w-md mx-auto text-center">
+              <div>
+                <div class="text-2xl font-bold text-emerald-400">50+</div>
+                <div class="text-neutral-400 text-sm">Projects Delivered</div>
+              </div>
+              <div>
+                <div class="text-2xl font-bold text-lime-400">100%</div>
+                <div class="text-neutral-400 text-sm">Client Satisfaction</div>
+              </div>
+              <div>
+                <div class="text-2xl font-bold text-neutral-200">24hr</div>
+                <div class="text-neutral-400 text-sm">Response Time</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+</style> 
