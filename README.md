@@ -1,50 +1,48 @@
 <h2 align="center">
-  <p>Personal website built with Astro</p>
-  <a href="#" target="_blank">https://rcmcodes.com</a>
+  <p>Personal Portfolio Website</p>
+  <a href="https://rcmcodes.com" target="_blank">🌐 Visit rcmcodes.com</a>
 </h2>
 
 <div align="center">
-  <img alt="Demo" src="./demo/demo.webp" />
-  <img alt="Demo" src="./demo/pagespeed-score.png" />
+  <img alt="Homepage" src="./public/demo.png" />
+  <img alt="Links page" src="./public/links.png">
+  <img alt="Partnership page" src="./public/partnership.png">
+  <img alt="Performance score" src="./demo/pagespeed-score.png" />
 </div>
+
+## ✨ Key Features
+
+**Portfolio Showcase**
+- Featured projects including TransposeRx (ophthalmic prescription tool), Technician's Bootcamp (healthcare LMS), and IntelFlow (no-code AI pipeline builder)
+- Professional experience timeline highlighting roles at 100devs, Spokane Eye Clinic, and Twin Rocks Web Development
+- Speaking engagements and technical presentations
+
+**Built for Performance**
+- Lightning-fast load times with Astro's static site generation
+- Optimized images and minimal JavaScript
+- Perfect Lighthouse scores across all metrics
+
+**Connect & Collaborate**
+- [Professional Links Hub](https://rcmcodes.com/links) - All social and professional links in one place
+- [Partnership Opportunities](https://rcmcodes.com/partner) - Collaboration and consulting inquiries
+- Direct calendar booking integration for coffee chats and consultations
+
+## 🔗 Quick Links
+
+- **Website**: [rcmcodes.com](https://rcmcodes.com)
+- **GitHub**: [github.com/rcm-webdev](https://github.com/rcm-webdev)
+- **LinkedIn**: [linkedin.com/in/roberto-c-murillo](https://www.linkedin.com/in/roberto-c-murillo/)
+- **Twitter/X**: [@rcmwdev](https://x.com/rcmwdev)
+- **Bluesky**: [rcmcodes.bsky.social](https://bsky.app/profile/rcmcodes.bsky.social)
+
+## 🎨 Tech Highlights
+
+Built with modern web technologies for optimal performance:
+- **Framework**: Astro with TypeScript
+- **Styling**: Tailwind CSS
+- **Integrations**: Cal.com booking, custom cursor effects
+- **Deployment**: Optimized for Netlify with perfect SEO scores
 
 <p align="center">
 Code is licensed under MIT, words and images are licensed under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a>.
 </p>
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                    | Action                                           |
-| :------------------------- | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm run dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm run build`           | Build your production site to `./dist/`          |
-| `pnpm run preview`         | Preview your build locally, before deploying     |
-| `pnpm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm run astro -- --help` | Get help using the Astro CLI                     |

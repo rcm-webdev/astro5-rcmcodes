@@ -1,11 +1,79 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { name: "Home", href: "/" },
+  { name: "Partner", href: "/partner" }
+];
 ---
 
-<Layout title="Partner With Roberto - Custom Software & Web Development | RCM CODES">
+<Layout 
+  title="Partner With Roberto - Custom Software & Web Development | RCM CODES"
+  seo={{
+    description: "Partner with Roberto Murillo for custom software development and web creation. MVP development starting at $5,000, professional websites from $500. Expert full-stack solutions.",
+    canonical: "https://rcmcodes.com/partner",
+    keywords: "custom software development, web development services, MVP development, full stack developer for hire, Roberto Murillo freelance, software engineering consultant",
+    openGraph: {
+      title: "Partner With Roberto - Custom Software & Web Development",
+      description: "Professional software development services. Custom applications, MVPs, and web solutions. Get your project quote today.",
+      type: "website"
+    },
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Custom Software Development Services",
+      "description": "Professional software development and web creation services by Roberto Murillo",
+      "provider": {
+        "@type": "Person",
+        "name": "Roberto Murillo",
+        "jobTitle": "Full Stack Software Engineer",
+        "url": "https://rcmcodes.com",
+        "email": "rcmcodes@gmail.com"
+      },
+      "serviceType": ["Software Development", "Web Development", "MVP Development"],
+      "areaServed": "Worldwide",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Development Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "MVP Development",
+              "description": "Custom applications built with cutting-edge technology"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": "5000",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "Offer", 
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Website Development",
+              "description": "Professional, responsive websites designed to convert"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": "500",  
+              "priceCurrency": "USD"
+            }
+          }
+        ]
+      }
+    }
+  }}
+>
   <div class="relative z-10">
     <div class="mx-auto min-h-screen max-w-screen-2xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24">
+      
+      <!-- Breadcrumbs -->
+      <Breadcrumbs items={breadcrumbItems} />
       
       <!-- Hero Section -->
       <section class="relative min-h-screen flex items-center justify-center overflow-hidden">

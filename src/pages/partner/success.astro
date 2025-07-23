@@ -1,10 +1,31 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { name: "Home", href: "/" },
+  { name: "Partner", href: "/partner" },
+  { name: "Success", href: "/partner/success" }
+];
 ---
 
-<Layout title="Thank You - Partnership Inquiry Submitted | RCM CODES">
+<Layout 
+  title="Thank You - Partnership Inquiry Submitted | RCM CODES"
+  seo={{
+    description: "Thank you for your partnership inquiry! Roberto will respond within 24-72 hours to discuss your custom software development or web creation project.",
+    canonical: "https://rcmcodes.com/partner/success",
+    noindex: true,
+    openGraph: {
+      title: "Partnership Inquiry Submitted Successfully",
+      description: "Thank you for reaching out! Your project inquiry has been received and will be reviewed promptly."
+    }
+  }}
+>
   <div class="relative z-10">
     <div class="mx-auto min-h-screen max-w-screen-2xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24">
+      
+      <!-- Breadcrumbs -->
+      <Breadcrumbs items={breadcrumbItems} />
       
       <!-- Success Message Section -->
       <section class="min-h-screen flex items-center justify-center">

@@ -2,7 +2,18 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title=`404 | RCM CODES`>
+<Layout 
+  title="404 - Page Not Found | RCM CODES"
+  seo={{
+    description: "Sorry, the page you're looking for doesn't exist. Return to Roberto Murillo's homepage to explore portfolio, services, and contact information.",
+    canonical: "https://rcmcodes.com/404",
+    noindex: true,
+    openGraph: {
+      title: "404 - Page Not Found",
+      description: "Page not found. Return to homepage to explore Roberto Murillo's portfolio and services."
+    }
+  }}
+>
   <div class="hero grid h-screen place-content-center px-4">
     <div class="z-20 text-center">
       <h1

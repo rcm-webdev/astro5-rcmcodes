@@ -12,7 +12,34 @@ import rmLogo from "../../public/logos/rcmcodes_white.svg";
 import websiteLogo from "../../public/logos/website.svg";
 ---
 
-<Layout title="Links | RCM CODES">
+<Layout 
+  title="Links - Connect with Roberto Murillo | RCM CODES"
+  seo={{
+    description: "Connect with Roberto Murillo, Full Stack Software Engineer. Find all my professional links, portfolio, LinkedIn, and ways to work with me for your next project.",
+    canonical: "https://rcmcodes.com/links",
+    openGraph: {
+      title: "Connect with Roberto Murillo - Full Stack Software Engineer",
+      description: "Find all my professional links and ways to connect. Portfolio, LinkedIn, and partnership opportunities available.",
+      type: "profile" 
+    },
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Roberto Murillo",
+        "alternateName": "rcmcodes",
+        "jobTitle": "Full Stack Software Engineer",
+        "url": "https://rcmcodes.com",
+        "image": "https://rcmcodes.com/profile.webp",
+        "sameAs": [
+          "https://www.linkedin.com/in/roberto-c-murillo/",
+          "https://rcmcodes.com"
+        ]
+      }
+    }
+  }}
+>
     <!-- Add higher z-index to ensure links are above particles -->
     <div class="min-h-screen flex items-center justify-center p-4 relative z-20">
         <div class="w-full max-w-md mx-auto text-center">
