@@ -33,7 +33,6 @@
 - **GitHub**: [github.com/rcm-webdev](https://github.com/rcm-webdev)
 - **LinkedIn**: [linkedin.com/in/roberto-c-murillo](https://www.linkedin.com/in/roberto-c-murillo/)
 - **Twitter/X**: [@rcmwdev](https://x.com/rcmwdev)
-- **Bluesky**: [rcmcodes.bsky.social](https://bsky.app/profile/rcmcodes.bsky.social)
 
 ## 🎨 Tech Highlights
 

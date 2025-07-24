@@ -1,7 +1,7 @@
 import IconGithub from "../components/icons/github.astro";
 import IconLinkedin from "../components/icons/linkedin.astro";
 import IconTwitter from "../components/icons/twitter.astro";
-import IconBluesky from "../components/icons/bluesky.astro";
+import IconLinks from "../components/icons/links.astro";
 
 export const SOCIALS = [
   {
@@ -20,8 +20,8 @@ export const SOCIALS = [
     icon: IconTwitter,
   },
   {
-    name: "Bluesky",
-    url: "https://bsky.app/profile/rcmcodes.bsky.social",
-    icon: IconBluesky,
+    name: "Links",
+    url: "/links",
+    icon: IconLinks,
   },
 ];
