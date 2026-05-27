@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+@theme {
+  --color-background: #000000;
+  --color-white-icon: #e5e5e5;
+}
+
+@source "../**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}";

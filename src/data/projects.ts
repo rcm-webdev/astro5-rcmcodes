@@ -2,30 +2,39 @@ import type { Props as ProjectProp } from "../components/projects/props";
 
 export const PROJECTS: ProjectProp[] = [
   {
-    title: "TransposeRx",
-    type: "Front-End",
-    projectUrl: "https://transposerx.netlify.app/",
+    title: "Kit Tracker",
+    type: "Full-Stack",
+    projectUrl: "https://kittracker-production.up.railway.app/",
     description:
-      "Designed and developed a lightweight web application to help ophthalmic technicians instantly transpose patients' glasses prescriptions.",
-    tags: ["React", "DaisyUI"],
+      "Production inventory tool for ophthalmic procedure supplies with QR-labeled bins, camera scanning, and full-text search replacing tribal knowledge and repeated staff interruptions.",
+    tags: ["Next.js", "TypeScript", "Railway", "Clinical Ops"],
+    logo: "/logos/sec.webp",
+  },
+  {
+    title: "TransposeRx",
+    type: "Full-Stack",
+    projectUrl: "https://transposerx-production.up.railway.app/",
+    description:
+      "Production LMS for ophthalmic technician onboarding with structured lessons, quizzes, progress tracking, and MDX-based curriculum that scales without schema migrations.",
+    tags: ["React", "MDX", "Railway"],
     logo: "/logos/transposerx.gif",
-  }
-  // {
-  //   title: "Technician's Bootcamp",
-  //   type: "Full-Stack",
-  //   projectUrl: "https://github.com/rcm-webdev/",
-  //   description:
-  //     "Building a full-stack LMS for ophthalmic technicians. Features include authentication, image upload and note taking. Future updates: AI notes and quiz functionality.",
-  //   tags: ["Next.js", "MongoDB", "Cloudinary", "Auth.js"],
-  //   logo: "/logos/coming_soon.webp",
-  // },
-  // {
-  //   title: "IntelFlow",
-  //   type: "Full-Stack",
-  //   projectUrl: "https://github.com/rcm-webdev/",
-  //   description:
-  //     "A no-code visual interface that lets users create a pipeline of AI tasks (like image input → object detection → alert) using a drag-and-drop interface. Workflows can be saved, tested, and edited.",
-  //   tags: ["React", "MongoDB", "Express", "Cloudinary", "HuggingFace API"],
-  //   logo: "/logos/coming_soon.webp",
-  // },
+  },
+  {
+    title: "Built by NIB",
+    type: "Full-Stack",
+    projectUrl: "https://builtbynib.com/",
+    description:
+      "First digital platform for Northwestern Integrity Builders: online lead generation for a word-of-mouth construction business, with a quoting system in development for automated PDF estimates.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    logo: "/logos/twin_rocks-1.webp",
+  },
+  {
+    title: "MMC Communications",
+    type: "Front-End",
+    projectUrl: "https://mmccommunications.netlify.app/",
+    description:
+      "Production marketing site built for trust, discoverability, and inbound inquiries; digital on-site security audit tool in development to replace paper clipboard checklists.",
+    tags: ["Astro", "TypeScript", "Tailwind CSS"],
+    logo: "/logos/twin_rocks-1.webp",
+  },
 ];

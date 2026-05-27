@@ -11,7 +11,7 @@ export const SOCIALS = [
   },
   {
     name: "Linkedin",
-    url: "https://www.linkedin.com/in/roberto-c-murillo/",
+    url: "https://www.linkedin.com/in/rcmcodes/",
     icon: IconLinkedin,
   },
   {

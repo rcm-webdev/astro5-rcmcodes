@@ -7,18 +7,19 @@ import CoffeeChatButton from "../components/CoffeeChatButton";
 import { Image } from "astro:assets";
 
 // Import images
-import profileImage from "../../public/profile.webp";
+import profileImage from "../../public/profile.png";
+import { PROFILE } from "../data/profile";
 import rmLogo from "../../public/logos/rcmcodes_white.svg";
 import websiteLogo from "../../public/logos/website.svg";
 ---
 
 <Layout 
-  title="Links - connect with Roberto M."
+  title="Links - connect with Roberto Murillo"
   seo={{
-    description: "Connect with Roberto M., Full Stack Software Engineer. Find all my professional links, portfolio, LinkedIn, and ways to work with me for your next project.",
+    description: `Connect with Roberto Murillo | ${PROFILE.title}. ${PROFILE.focus}`,
     canonical: "https://rcmcodes.com/links",
     openGraph: {
-      title: "Connect with Roberto M. - Full Stack Software Engineer",
+      title: `Connect with Roberto Murillo - ${PROFILE.title}`,
       description: "Find all my professional links and ways to connect. Portfolio, LinkedIn, and partnership opportunities available.",
       type: "profile" 
     },
@@ -27,13 +28,13 @@ import websiteLogo from "../../public/logos/website.svg";
       "@type": "ProfilePage",
       "mainEntity": {
         "@type": "Person",
-        "name": "Roberto M.",
+        "name": "Roberto Murillo",
         "alternateName": "rcmcodes",
-        "jobTitle": "Full Stack Software Engineer",
+        "jobTitle": PROFILE.title,
         "url": "https://rcmcodes.com",
-        "image": "https://rcmcodes.com/profile.webp",
+        "image": `https://rcmcodes.com${PROFILE.imagePath}`,
         "sameAs": [
-          "https://www.linkedin.com/in/roberto-c-murillo/",
+          "https://www.linkedin.com/in/rcmcodes/",
           "https://rcmcodes.com"
         ]
       }
@@ -46,11 +47,11 @@ import websiteLogo from "../../public/logos/website.svg";
             
             <!-- Profile Section -->
             <div class="mb-8">
-                <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-neutral-800 ring-2 ring-neutral-700">
+                <div class="w-24 h-24 mx-auto mb-4 rounded-xl overflow-hidden bg-neutral-800 ring-2 ring-neutral-700">
                     <Image 
                         src={profileImage}
-                        alt="Roberto M." 
-                        class="w-full h-full object-cover grayscale"
+                        alt={PROFILE.imageAlt}
+                        class="w-full h-full object-cover pixelated"
                         width={192}
                         height={192}
                         loading="eager"
@@ -63,8 +64,11 @@ import websiteLogo from "../../public/logos/website.svg";
                     rcmcodes
                 </h1>
                 
-                <p class="text-neutral-400 text-sm mb-2">
-                    Full Stack Software Engineer
+                <p class="text-neutral-400 text-sm mb-1">
+                    {PROFILE.title}
+                </p>
+                <p class="text-neutral-500 text-xs mb-2 leading-relaxed px-2">
+                    {PROFILE.focus}
                 </p>
 
                 <p class="text-green-400 text-xs font-medium flex items-center justify-center gap-2">
@@ -81,7 +85,12 @@ import websiteLogo from "../../public/logos/website.svg";
             <!-- Value Proposition -->
             <div class="mb-6 p-4 bg-neutral-800/50 rounded-xl border border-neutral-700">
                 <p class="text-neutral-300 text-sm leading-relaxed">
-                    Hello 👋🏼 <br> I'm an inland northwest-based <span class="text-blue-400 font-medium">full stack software engineer</span> with a deep interest in <span class="text-purple-400 font-medium">machine learning</span> and <span class="text-green-400 font-medium">human-computer interaction</span>. 
+                    Hello 👋🏼 <br>
+                    <span class="text-blue-400 font-medium">{PROFILE.title}</span>
+                    focused on
+                    <span class="text-purple-400 font-medium">health tech</span>,
+                    <span class="text-emerald-400 font-medium">clinical workflows</span>, and
+                    <span class="text-green-400 font-medium">AI-native development</span>.
                     
                 </p>
             </div>
@@ -131,12 +140,12 @@ import websiteLogo from "../../public/logos/website.svg";
 
                 <!-- LinkedIn -->
                 <a 
-                    href="https://www.linkedin.com/in/roberto-c-murillo/" 
+                    href="https://www.linkedin.com/in/rcmcodes/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    class="flex items-center w-full p-4 bg-[#0B66C2] hover:bg-[#0B66C2]/80 rounded-xl transition-colors duration-200 relative z-30"
+                    class="flex items-center w-full p-4 bg-neutral-800 hover:bg-neutral-700 border border-neutral-700/60 rounded-xl transition-colors duration-200 relative z-30"
                 >
-                    <div class="w-6 h-6 mr-4 flex-shrink-0 text-white">
+                    <div class="w-6 h-6 mr-4 flex-shrink-0 text-neutral-300">
                         <IconLinkedin />
                     </div>
                     <span class="text-white font-medium">Connect on LinkedIn</span>
