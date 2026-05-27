@@ -62,8 +62,7 @@ export const SKILLS: SkillGroup[] = [
     category: "AI-Augmented Engineering",
     items: [
       { name: "Cursor", simpleIconSlug: "cursor" },
-      { name: "Claude Code", simpleIconSlug: "anthropic" },
-      { name: "OpenAI API", simpleIconSlug: "openai" },
+      { name: "Claude Code", simpleIconSlug: "claude" },
     ],
   },
   {
