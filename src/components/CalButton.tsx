@@ -1,5 +1,28 @@
 import { useState } from "react";
 import CalEmbed from "./CalEmbed";
+import { CONTACT, HERO_CTA_CLASS } from "../data/contact";
+
+function CoffeeIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-[18px] w-[18px] text-neutral-400 transition-colors group-hover:text-neutral-200"
+      aria-hidden="true"
+    >
+      <path d="M10 2v2" />
+      <path d="M14 2v2" />
+      <path d="M16 8a4 4 0 0 1-8 0V6h8v2Z" />
+      <path d="M6 8H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-2" />
+      <path d="M6 14h12v4H6z" />
+    </svg>
+  );
+}
 
 export default function CalButton() {
   const [isCalOpen, setIsCalOpen] = useState(false);
@@ -10,16 +33,17 @@ export default function CalButton() {
   return (
     <>
       <button
+        type="button"
         onClick={openCal}
         data-ccursor
-        className="inline-flex transition-all border-neutral-700 hover:border-opacity-0 border-opacity-50 shadow rounded-md border backdrop-blur-xl bg-neutral-400/10 px-3 py-2.5 items-center text-white font-semibold group p-2 text-sm gap-x-2"
+        className={HERO_CTA_CLASS}
+        aria-label={CONTACT.coffeeChatAriaLabel}
       >
-        <span>Get to know me</span>
-        <span className="w-2 h-2 rounded-full bg-green-400 duration-1000 animate-pulse">
-        </span>
+        <CoffeeIcon />
+        <span>{CONTACT.coffeeChatLabel}</span>
       </button>
-      
+
       <CalEmbed isOpen={isCalOpen} onClose={closeCal} />
     </>
   );
-} 
+}

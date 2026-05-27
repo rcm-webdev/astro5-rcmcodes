@@ -1,185 +1,154 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import IconCal from "../../public/logos/caldotcom.svg";
-import IconLinkedin from "../components/icons/linkedin2.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import IconLinkedin from "../components/icons/linkedin.astro";
 import CoffeeChatButton from "../components/CoffeeChatButton";
-
+import SocialLinks from "../components/SocialLinks.astro";
 import { Image } from "astro:assets";
-
-// Import images
 import profileImage from "../../public/profile.png";
-import { PROFILE } from "../data/profile";
 import rmLogo from "../../public/logos/rcmcodes_white.svg";
-import websiteLogo from "../../public/logos/website.svg";
+import BrandLogo from "../components/BrandLogo.astro";
+import { PROFILE } from "../data/profile";
+import { LINK_LABELS, LINK_ROW_CLASS, LINK_ICON_CLASS } from "../data/contact";
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Links" },
+];
 ---
 
-<Layout 
+<Layout
   title="Links - connect with Roberto Murillo"
   seo={{
     description: `Connect with Roberto Murillo | ${PROFILE.title}. ${PROFILE.focus}`,
     canonical: "https://rcmcodes.com/links",
     openGraph: {
       title: `Connect with Roberto Murillo - ${PROFILE.title}`,
-      description: "Find all my professional links and ways to connect. Portfolio, LinkedIn, and partnership opportunities available.",
-      type: "profile" 
+      description:
+        "Find all my professional links and ways to connect. Portfolio, LinkedIn, and partnership opportunities available.",
+      type: "profile",
     },
     structuredData: {
       "@context": "https://schema.org",
       "@type": "ProfilePage",
-      "mainEntity": {
+      mainEntity: {
         "@type": "Person",
-        "name": "Roberto Murillo",
-        "alternateName": "rcmcodes",
-        "jobTitle": PROFILE.title,
-        "url": "https://rcmcodes.com",
-        "image": `https://rcmcodes.com${PROFILE.imagePath}`,
-        "sameAs": [
+        name: "Roberto Murillo",
+        alternateName: "rcmcodes",
+        jobTitle: PROFILE.title,
+        url: "https://rcmcodes.com",
+        image: `https://rcmcodes.com${PROFILE.imagePath}`,
+        sameAs: [
           "https://www.linkedin.com/in/rcmcodes/",
-          "https://rcmcodes.com"
-        ]
-      }
-    }
+          "https://rcmcodes.com",
+        ],
+      },
+    },
   }}
 >
-    <!-- Add higher z-index to ensure links are above particles -->
-    <div class="min-h-screen flex items-center justify-center p-4 relative z-20">
-        <div class="w-full max-w-md mx-auto text-center">
-            
-            <!-- Profile Section -->
-            <div class="mb-8">
-                <div class="w-24 h-24 mx-auto mb-4 rounded-xl overflow-hidden bg-neutral-800 ring-2 ring-neutral-700">
-                    <Image 
-                        src={profileImage}
-                        alt={PROFILE.imageAlt}
-                        class="w-full h-full object-cover pixelated"
-                        width={192}
-                        height={192}
-                        loading="eager"
-                        decoding="async"
-                        fetchpriority="high"
-                    />
-                </div>
-                
-                <h1 class="text-2xl font-bold text-white mb-2">
-                    rcmcodes
-                </h1>
-                
-                <p class="text-neutral-400 text-sm mb-1">
-                    {PROFILE.title}
-                </p>
-                <p class="text-neutral-500 text-xs mb-2 leading-relaxed px-2">
-                    {PROFILE.focus}
-                </p>
+  <div class="links-hub relative z-10 min-h-screen font-sans">
+    <div
+      class="mx-auto flex min-h-screen max-w-md flex-col justify-center px-6 py-16"
+    >
+      <Breadcrumbs items={breadcrumbItems} class="w-full" />
 
-                <p class="text-green-400 text-xs font-medium flex items-center justify-center gap-2">
-                    <span
-                  class="w-2 h-2 rounded-full bg-green-400 duration-1000 animate-pulse"
-                >
-                </span>
-                <span>Open to new opportunities</span>
-                
-                
-                </p>
-            </div>
+      <header class="mb-8 text-center">
+        <Image
+          src={profileImage}
+          alt={PROFILE.imageAlt}
+          class="mx-auto h-24 w-24 rounded-xl object-cover ring-2 ring-neutral-700/80 pixelated"
+          width={192}
+          height={192}
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
 
-            <!-- Value Proposition -->
-            <div class="mb-6 p-4 bg-neutral-800/50 rounded-xl border border-neutral-700">
-                <p class="text-neutral-300 text-sm leading-relaxed">
-                    Hello 👋🏼 <br>
-                    <span class="text-blue-400 font-medium">{PROFILE.title}</span>
-                    focused on
-                    <span class="text-purple-400 font-medium">health tech</span>,
-                    <span class="text-emerald-400 font-medium">clinical workflows</span>, and
-                    <span class="text-green-400 font-medium">AI-native development</span>.
-                    
-                </p>
-            </div>
+        <h1
+          class="mt-6 inline-block rounded-full bg-neutral-400/10 px-3 py-1 text-sm font-medium text-neutral-200/80"
+        >
+          Connect with Roberto
+        </h1>
 
-            <!-- Links -->
-            <div class="space-y-4 mb-8">
-                
-                <!-- Portfolio -->
-                <a 
-                    href="https://rcmcodes.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="flex items-center w-full p-4 bg-neutral-800 hover:bg-neutral-700 rounded-xl transition-colors duration-200 relative z-30"
-                >
-                    <div class="w-6 h-6 mr-4 flex-shrink-0">
-                        <Image 
-                            src={rmLogo}
-                            alt="RM Logo"
-                            class="w-full h-full object-contain"
-                            
-                        />
-                    </div>
-                    <span class="text-white font-medium">Need a developer? I'm available for hire.</span>
-                </a>
+        <p class="mt-3 text-sm text-neutral-400">{PROFILE.title}</p>
+        <p class="mt-2 px-2 text-xs leading-relaxed text-neutral-500">
+          {PROFILE.focus}
+        </p>
+      </header>
 
-                <!-- Freelancer Services -->
-                <a 
-                    href="/partner" 
-                    class="flex items-center w-full p-4 shiny-bg hover:opacity-90 rounded-xl transition-all duration-200 relative z-30"
-                >
-                    <div class="w-6 h-6 mr-4 flex-shrink-0">
-                        <Image 
-                            src={websiteLogo}
-                            alt="Website Logo"
-                            class="w-full h-full object-contain"
-                            width={20}
-                            height={20}
-                        />
-                    </div>
-                    <span class="text-white font-medium">Need a website? Let's talk.</span>
-                </a>
+      <div
+        class="mb-8 rounded-xl border border-neutral-700/60 bg-neutral-400/10 p-4 shadow backdrop-blur-xl"
+      >
+        <p class="text-sm leading-relaxed text-neutral-300">
+          {PROFILE.intro}
+        </p>
+      </div>
 
-                <!-- Coffee Chat -->
-                <div class="relative z-30">
-                    <CoffeeChatButton client:load />
-                </div>
+      <nav class="mb-10 space-y-3" aria-label="Professional links">
+        <a
+          href="https://rcmcodes.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class={LINK_ROW_CLASS}
+        >
+          <span class={LINK_ICON_CLASS}>
+            <Image
+              src={rmLogo}
+              alt=""
+              class="h-5 w-5 object-contain"
+              width={20}
+              height={20}
+              aria-hidden="true"
+            />
+          </span>
+          <span>{LINK_LABELS.portfolio}</span>
+        </a>
 
-                <!-- LinkedIn -->
-                <a 
-                    href="https://www.linkedin.com/in/rcmcodes/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="flex items-center w-full p-4 bg-neutral-800 hover:bg-neutral-700 border border-neutral-700/60 rounded-xl transition-colors duration-200 relative z-30"
-                >
-                    <div class="w-6 h-6 mr-4 flex-shrink-0 text-neutral-300">
-                        <IconLinkedin />
-                    </div>
-                    <span class="text-white font-medium">Connect on LinkedIn</span>
-                </a>
+        <a href="/partner" class={LINK_ROW_CLASS}>
+          <span class={LINK_ICON_CLASS}>
+            <BrandLogo variant="icon" />
+          </span>
+          <span>{LINK_LABELS.partner}</span>
+        </a>
 
-                
+        <CoffeeChatButton client:load />
 
-            </div>
+        <a
+          href="https://www.linkedin.com/in/rcmcodes/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class={LINK_ROW_CLASS}
+          aria-label="Connect on LinkedIn (opens in a new tab)"
+        >
+          <span class={LINK_ICON_CLASS}>
+            <IconLinkedin />
+          </span>
+          <span>{LINK_LABELS.linkedIn}</span>
+        </a>
+      </nav>
 
-            <!-- Footer Logo/Branding -->
-            <div class="flex justify-center">
-                <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white text-sm font-bold">RM</span>
-                </div>
-            </div>
-            
-        </div>
+      <footer class="border-t border-neutral-800/60 pt-8 text-center">
+        <SocialLinks />
+        <p class="mt-6">
+          <a
+            href="/"
+            class="text-sm font-medium text-neutral-400 transition-colors hover:text-neutral-100 focus-visible:text-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500/50"
+          >
+            {LINK_LABELS.backHome}
+          </a>
+        </p>
+        <p class="mt-4 text-xs text-neutral-500">
+          {new Date().getFullYear()}. All rights reserved.
+        </p>
+      </footer>
     </div>
+  </div>
 </Layout>
 
 <style>
-  .shiny-bg {
-    background: linear-gradient(135deg, #a476ff 25%, #eee5ff 50%, #a476ff 75%);
-    background-size: 400% 100%;
-    animation: shine 3s linear infinite;
-  }
-
-  @keyframes shine {
-    0% {
-      background-position: 100% 50%;
-    }
-    30%,
-    70% {
-      background-position: 0% 50%;
-    }
+  .links-hub {
+    background-image: url(/pattern.svg);
+    background-position: top center;
+    background-repeat: no-repeat;
   }
 </style>

@@ -4,32 +4,38 @@ import Experience from "../components/experience/index.astro";
 import Project from "../components/projects/index.astro";
 import { EXPERIENCE } from "../data/experience";
 import { PROJECTS } from "../data/projects";
-import { SKILLS } from "../data/skills";
 import { EDUCATION } from "../data/education";
 import { CERTIFICATIONS } from "../data/certifications";
 import Layout from "../layouts/Layout.astro";
-import LogoWall from "../components/logoWall.astro";
+import SkillHub from "../components/SkillHub.astro";
 import { Image } from "astro:assets";
 import CalButton from "../components/CalButton";
+import IconMail from "../components/icons/mail.astro";
+import IconLinks from "../components/icons/links.astro";
+import { CONTACT, HERO_CTA_CLASS, NAV_COPY, TEXT_LINK_CLASS } from "../data/contact";
 import { PROFILE } from "../data/profile";
+import { BRAND } from "../data/brand";
 import profileImage from "../../public/profile.png";
+
+const transposeRxProject = PROJECTS.find((p) => p.title === "TransposeRx");
+const kitTrackerProject = PROJECTS.find((p) => p.title === "Kit Tracker");
 ---
 
 <Layout 
-  title={`Roberto Murillo - ${PROFILE.title} | RCM CODES`}
+  title={`${PROFILE.displayName} - ${PROFILE.title} | RCM CODES`}
   seo={{
-    description: `${PROFILE.title} | ${PROFILE.focus}. Roberto Murillo builds health tech software, clinical workflow tools, and AI-native platforms in Spokane, WA.`,
+    description: `${PROFILE.title} | ${PROFILE.focus}. ${PROFILE.displayName} builds health tech software, clinical workflow tools, and AI-native platforms in Spokane, WA.`,
     canonical: "https://rcmcodes.com/",
     openGraph: {
-      title: `Roberto Murillo - ${PROFILE.title}`,
+      title: `${PROFILE.displayName} - ${PROFILE.title}`,
       description: `${PROFILE.title} | ${PROFILE.focus}`,
       type: "profile"
     },
     structuredData: {
       "@context": "https://schema.org",
       "@type": ["Person", "ProfessionalService"],
-      "name": "Roberto Murillo",
-      "alternateName": "rcmcodes",
+      "name": PROFILE.displayName,
+      "alternateName": [PROFILE.alternateName, "rcmcodes"],
       "description": PROFILE.intro,
       "url": "https://rcmcodes.com",
       "image": `https://rcmcodes.com${PROFILE.imagePath}`,
@@ -103,7 +109,7 @@ import profileImage from "../../public/profile.png";
             
             <!-- Name and Titles -->
             <div class="flex flex-col items-center gap-2 max-w-sm">
-              <p class="text-sm lg:text-lg font-medium text-neutral-200/60 py-1 px-3 rounded-full bg-neutral-400/10">Hi, I'm Roberto Murillo</p>
+              <p class="text-sm lg:text-lg font-medium text-neutral-200/60 py-1 px-3 rounded-full bg-neutral-400/10">Hi, I'm {PROFILE.displayName}</p>
               <a
                 href="/"
                 class="block font-medium tracking-tight text-center"
@@ -116,25 +122,36 @@ import profileImage from "../../public/profile.png";
             </div>
 
             <!-- Call to Action Buttons -->
-            <div class="flex flex-row flex-wrap justify-center gap-3 items-center">
+            <div
+              class="flex flex-row flex-wrap justify-center gap-3 items-center"
+              role="group"
+              aria-label="Contact options"
+            >
               <a
                 data-ccursor
-                href="mailto:rcmcodes@gmail.com?subject=Hey 👋 I'm interested in hiring you, let's talk!"
-                class="inline-flex transition-all border-neutral-700 hover:border-opacity-0 border-opacity-50 shadow rounded-md border backdrop-blur-xl bg-neutral-400/10 px-3 py-2.5 items-center text-white font-semibold group p-2 text-sm gap-x-2"
+                href={`mailto:${CONTACT.email}?subject=${encodeURIComponent(CONTACT.mailtoSubject)}`}
+                class={HERO_CTA_CLASS}
+                aria-label={`Email ${CONTACT.email}`}
               >
-                <span>Hire me</span>
-                <span
-                  class="w-2 h-2 rounded-full bg-green-400 duration-1000 animate-pulse"
-                >
-                </span>
+                <IconMail />
+                <span>{CONTACT.emailCtaLabel}</span>
               </a>
 
               <CalButton client:load />
+
+              <a
+                data-ccursor
+                href="/links"
+                class={HERO_CTA_CLASS}
+              >
+                <IconLinks />
+                <span>{NAV_COPY.allLinks} →</span>
+              </a>
             </div>
-            
-            <!-- Logo Wall -->
+
+            <!-- Skill hub -->
             <div class="mt-4 w-full max-w-sm">
-              <LogoWall />
+              <SkillHub />
             </div>
 
           </div>
@@ -183,52 +200,45 @@ import profileImage from "../../public/profile.png";
               <div class="mb-4 space-y-4">
                 
                 <p>
-                  After earning my B.S. in Biochemistry from Whitworth University, I started in healthcare as a medical scribe at Idaho Urology Institute, where I built the clinic's first structured training system. That work led me into clinical operations at Spokane Eye Clinic, where I ship production tools like TransposeRx (an LMS for technician onboarding) and Kit Tracker (QR-based inventory for procedure supplies).
+                  After earning my B.S. in Biochemistry from Whitworth University, I started in healthcare as a medical scribe at Idaho Urology Institute, where I built the clinic's first structured training system. That work led me into clinical operations at Spokane Eye Clinic, where I ship production tools like{" "}
+                  <a
+                    href={transposeRxProject!.projectUrl}
+                    class={TEXT_LINK_CLASS}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="TransposeRx (opens in a new tab)"
+                  >
+                    TransposeRx
+                  </a>{" "}
+                  (an LMS for technician onboarding) and{" "}
+                  <a
+                    href={kitTrackerProject!.projectUrl}
+                    class={TEXT_LINK_CLASS}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Kit Tracker (opens in a new tab)"
+                  >
+                    Kit Tracker
+                  </a>{" "}
+                  (QR-based inventory for procedure supplies).
                 </p>
                 <p>
-                  As Technical Lead at Twin Rocks Software Studio, I partner with small and medium businesses to replace manual spreadsheets, paper checklists, and word-of-mouth-only workflows with centralized platforms, from lead-generation sites to quoting systems and field audit tools.
+                  As Technical Lead at{" "}
+                  <a
+                    href="/partner"
+                    class={TEXT_LINK_CLASS}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${BRAND.studioName} (opens in a new tab)`}
+                  >
+                    {BRAND.studioName}
+                  </a>
+                  , I partner with small and medium businesses to replace manual spreadsheets, paper checklists, and word-of-mouth-only workflows with centralized platforms, from lead-generation sites to quoting systems and field audit tools.
                 </p>
                 <p>
                   I'm open to roles where software directly improves how teams operate day to day.
                 </p>
               </div>
-            </div>
-          </section>
-
-          <!-- Skills -->
-          <section
-            id="skills"
-            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-4 lg:scroll-mt-24"
-            aria-label="Skills"
-          >
-            <div
-              class="section-header sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
-            >
-              <h2
-                class="text-sm font-bold uppercase tracking-widest text-neutral-200 lg:sr-only"
-              >
-                Skills
-              </h2>
-            </div>
-            <div class="space-y-6">
-              {
-                SKILLS.map((group) => (
-                  <div>
-                    <h3 class="text-sm font-semibold uppercase tracking-wide text-neutral-400 mb-2">
-                      {group.category}
-                    </h3>
-                    <ul class="flex flex-wrap gap-2" aria-label={group.category}>
-                      {group.items.map((skill) => (
-                        <li>
-                          <div class="flex items-center backdrop-blur-sm rounded-full border border-neutral-700 border-opacity-50 shadow bg-neutral-400/10 px-3 py-1 text-xs font-medium leading-5 text-neutral-300">
-                            {skill}
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))
-              }
             </div>
           </section>
 
@@ -443,17 +453,13 @@ import profileImage from "../../public/profile.png";
     #experience .section-header {
       z-index: 13;
     }
-    
-    #skills .section-header {
+
+    #applications .section-header {
       z-index: 12;
     }
 
-    #applications .section-header {
-      z-index: 11;
-    }
-
     #education .section-header {
-      z-index: 10;
+      z-index: 11;
     }
 
     #certifications .section-header {

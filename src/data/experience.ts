@@ -1,11 +1,12 @@
 import type { Props as ExperienceProp } from "../components/experience/props";
+import { BRAND } from "./brand";
 
 export const EXPERIENCE: ExperienceProp[] = [
   {
     dates: "September 2022 to Present",
     title: "Full Stack Software Engineer, Technical Lead",
     company: "Twin Rocks Software Studio",
-    companyUrl: "https://rcmcodes.com/partner",
+    companyUrl: "/partner",
     description:
       "Reduce client dependency on fragmented manual workflows by building centralized operational tooling, automation systems, and custom web platforms tailored to day-to-day business operations.",
     highlights: [
@@ -20,7 +21,7 @@ export const EXPERIENCE: ExperienceProp[] = [
       "Railway",
       "Remote",
     ],
-    logo: "/logos/twin_rocks-1.webp",
+    logo: BRAND.logoPath,
   },
   {
     dates: "August 2022 to Present",

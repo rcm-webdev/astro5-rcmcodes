@@ -1,138 +1,126 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BrandLogo from "../../components/BrandLogo.astro";
+import { BRAND } from "../../data/brand";
+import { GLASS_CARD_CLASS, GLASS_BTN_CLASS, GLASS_BTN_PRIMARY_CLASS } from "../../data/contact";
 
 const breadcrumbItems = [
-  { name: "Home", href: "/" },
-  { name: "Partner", href: "/partner" },
-  { name: "Success", href: "/partner/success" }
+  { label: "Home", href: "/" },
+  { label: "Partner", href: "/partner" },
+  { label: "Success" },
 ];
 ---
 
-<Layout 
-  title="Thank You - Partnership Inquiry Submitted | RCM CODES"
+<Layout
+  title={`Thank you | ${BRAND.studioName}`}
   seo={{
-    description: "Thank you for your partnership inquiry! Roberto will respond within 24-72 hours to discuss your custom software development or web creation project.",
+    description:
+      "Your project inquiry to Twin Rocks Software Studio was received. Roberto will respond within 24–72 hours.",
     canonical: "https://rcmcodes.com/partner/success",
     noindex: true,
     openGraph: {
-      title: "Partnership Inquiry Submitted Successfully",
-      description: "Thank you for reaching out! Your project inquiry has been received and will be reviewed promptly."
-    }
+      title: "Inquiry received: Twin Rocks Software Studio",
+      description: "Thank you for reaching out. We'll be in touch shortly.",
+    },
   }}
 >
   <div class="relative z-10">
-    <div class="mx-auto min-h-screen max-w-screen-2xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24">
-      
-      <!-- Breadcrumbs -->
+    <div
+      class="mx-auto min-h-screen max-w-screen-2xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24"
+    >
       <Breadcrumbs items={breadcrumbItems} />
-      
-      <!-- Success Message Section -->
-      <section class="min-h-screen flex items-center justify-center">
-        <div class="text-center space-y-8 max-w-3xl mx-auto">
-          <!-- Success Icon -->
-          <div class="w-24 h-24 bg-gradient-to-br from-emerald-500 to-lime-400 rounded-full mx-auto flex items-center justify-center">
-            <svg class="w-12 h-12 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+
+      <section class="flex min-h-[70vh] items-center justify-center py-16">
+        <div class="mx-auto max-w-2xl text-center">
+          <div
+            class="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-5"
+          >
+            <BrandLogo
+              variant="success"
+              class="ring-2 ring-neutral-700/80"
+              loading="eager"
+            />
+            <div
+              class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-neutral-700/60 bg-neutral-400/10 backdrop-blur-xl"
+              aria-hidden="true"
+            >
+            <svg
+              class="h-7 w-7 text-neutral-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"></path>
             </svg>
-          </div>
-
-          <!-- Main Heading -->
-          <div class="space-y-4">
-            <h1 class="text-4xl lg:text-6xl font-bold text-white tracking-tight">
-              Message Received!
-            </h1>
-            <p class="text-xl lg:text-2xl text-neutral-300 leading-relaxed">
-              Thank you for reaching out. I've received your partnership inquiry and I'm excited to learn more about your project.
-            </p>
-          </div>
-
-          <!-- What's Next Section -->
-          <div class="bg-neutral-900/50 backdrop-blur-sm rounded-3xl p-8 border border-neutral-800 text-left">
-            <h2 class="text-2xl font-bold text-white mb-6 text-center">What happens next?</h2>
-            <div class="space-y-4">
-              <div class="flex items-start gap-4">
-                <div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <span class="text-black font-bold text-sm">1</span>
-                </div>
-                <div>
-                  <h3 class="text-white font-semibold mb-1">Quick Response</h3>
-                  <p class="text-neutral-300">I'll review your inquiry and respond within 24-72 hours with initial thoughts and next steps.</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start gap-4">
-                <div class="w-8 h-8 bg-lime-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <span class="text-black font-bold text-sm">2</span>
-                </div>
-                <div>
-                  <h3 class="text-white font-semibold mb-1">Discovery Call</h3>
-                  <p class="text-neutral-300">We'll schedule a free 30-minute consultation to discuss your project requirements and goals.</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start gap-4">
-                <div class="w-8 h-8 bg-emerald-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <span class="text-black font-bold text-sm">3</span>
-                </div>
-                <div>
-                  <h3 class="text-white font-semibold mb-1">Custom Proposal</h3>
-                  <p class="text-neutral-300">You'll receive a detailed proposal with timeline, deliverables, and transparent pricing.</p>
-                </div>
-              </div>
             </div>
           </div>
 
-          <!-- Contact Info & Actions -->
-          <div class="space-y-6">
-            <div class="text-center">
-              <p class="text-neutral-400 mb-4">Need to reach me urgently?</p>
-              <a href="mailto:rcmcodes@gmail.com?subject=Hey 👋 I'm interested in partnering up with you, let's talk!" class="inline-flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors duration-300">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
-                rcmcodes@gmail.com
-              </a>
-            </div>
+          <h1 class="mt-8 text-4xl font-bold tracking-tight text-neutral-100 md:text-5xl">
+            Message received
+          </h1>
+          <p class="mt-4 text-lg leading-relaxed text-neutral-300">
+            Thanks for reaching out to {BRAND.studioName}. Your inquiry is in the
+            queue. We'll review it and respond within 24–72 hours.
+          </p>
 
-            <!-- Navigation Links -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/" class="bg-gradient-to-r from-emerald-500 to-lime-400 text-black px-8 py-4 rounded-xl font-semibold hover:from-emerald-600 hover:to-lime-500 transition-all duration-300 text-center">
-                Back to Homepage
-              </a>
-              <a href="/partner" class="bg-neutral-800 hover:bg-neutral-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors duration-300 text-center">
-                Submit Another Inquiry
-              </a>
-            </div>
+          <div class={`${GLASS_CARD_CLASS} mt-10 p-8 text-left`}>
+            <h2 class="text-center text-lg font-semibold text-neutral-100">
+              What happens next
+            </h2>
+            <ol class="mt-6 space-y-5">
+              {
+                [
+                  {
+                    step: "1",
+                    title: "Review",
+                    body: "We'll read your project details and confirm whether we're a good fit.",
+                  },
+                  {
+                    step: "2",
+                    title: "Discovery call",
+                    body: "A short conversation to clarify goals, constraints, and timeline.",
+                  },
+                  {
+                    step: "3",
+                    title: "Proposal",
+                    body: "A written scope with deliverables, schedule, and transparent pricing.",
+                  },
+                ].map((item) => (
+                  <li class="flex gap-4">
+                    <span
+                      class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-neutral-700/60 bg-neutral-400/10 text-sm font-semibold text-neutral-300"
+                    >
+                      {item.step}
+                    </span>
+                    <div>
+                      <h3 class="font-medium text-neutral-100">{item.title}</h3>
+                      <p class="mt-1 text-sm text-neutral-400">{item.body}</p>
+                    </div>
+                  </li>
+                ))
+              }
+            </ol>
           </div>
 
-          <!-- Social Proof -->
-          <div class="pt-8 border-t border-neutral-800">
-            <p class="text-neutral-400 text-sm mb-4">Join other successful partnerships</p>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 max-w-md mx-auto text-center">
-              <div>
-                <div class="text-2xl font-bold text-emerald-400">50+</div>
-                <div class="text-neutral-400 text-sm">Projects Delivered</div>
-              </div>
-              <div>
-                <div class="text-2xl font-bold text-lime-400">Excellent</div>
-                <div class="text-neutral-400 text-sm">Client Satisfaction</div>
-              </div>
-              <div>
-                <div class="text-2xl font-bold text-neutral-200">24-72hr</div>
-                <div class="text-neutral-400 text-sm">Response Time</div>
-              </div>
-            </div>
+          <div class="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+            <a href="/" class={GLASS_BTN_PRIMARY_CLASS}>Back to homepage</a>
+            <a href="/partner" class={GLASS_BTN_CLASS}>Submit another inquiry</a>
           </div>
+
+          <p class="mt-8 text-sm text-neutral-500">
+            Urgent? <a
+              href="mailto:rcmcodes@gmail.com"
+              class="text-neutral-300 underline-offset-2 hover:text-neutral-100 hover:underline"
+              >rcmcodes@gmail.com</a
+            >
+          </p>
         </div>
       </section>
     </div>
   </div>
 </Layout>
-
-<style>
-  /* Smooth scroll behavior */
-  html {
-    scroll-behavior: smooth;
-  }
-</style> 

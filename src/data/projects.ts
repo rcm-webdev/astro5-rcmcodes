@@ -1,4 +1,5 @@
 import type { Props as ProjectProp } from "../components/projects/props";
+import { BRAND } from "./brand";
 
 export const PROJECTS: ProjectProp[] = [
   {
@@ -7,7 +8,7 @@ export const PROJECTS: ProjectProp[] = [
     projectUrl: "https://kittracker-production.up.railway.app/",
     description:
       "Production inventory tool for ophthalmic procedure supplies with QR-labeled bins, camera scanning, and full-text search replacing tribal knowledge and repeated staff interruptions.",
-    tags: ["Next.js", "TypeScript", "Railway", "Clinical Ops"],
+    tags: ["React", "TypeScript", "Railway", "Clinical Ops"],
     logo: "/logos/sec.webp",
   },
   {
@@ -25,8 +26,8 @@ export const PROJECTS: ProjectProp[] = [
     projectUrl: "https://builtbynib.com/",
     description:
       "First digital platform for Northwestern Integrity Builders: online lead generation for a word-of-mouth construction business, with a quoting system in development for automated PDF estimates.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
-    logo: "/logos/twin_rocks-1.webp",
+    tags: ["Astro", "TypeScript", "Tailwind CSS"],
+    logo: BRAND.logoPath,
   },
   {
     title: "MMC Communications",
@@ -35,6 +36,6 @@ export const PROJECTS: ProjectProp[] = [
     description:
       "Production marketing site built for trust, discoverability, and inbound inquiries; digital on-site security audit tool in development to replace paper clipboard checklists.",
     tags: ["Astro", "TypeScript", "Tailwind CSS"],
-    logo: "/logos/twin_rocks-1.webp",
+    logo: BRAND.logoPath,
   },
 ];
