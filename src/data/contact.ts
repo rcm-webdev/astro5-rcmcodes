@@ -1,7 +1,4 @@
 export const CONTACT = {
-  email: "rcmcodes@gmail.com",
-  mailtoSubject: "Hello from rcmcodes.com",
-  emailCtaLabel: "Email me",
   coffeeChatLabel: "Book a coffee chat",
   coffeeChatAriaLabel: "Book a 30-minute coffee chat",
 } as const;

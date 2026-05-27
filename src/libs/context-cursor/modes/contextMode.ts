@@ -1,6 +1,6 @@
 // @ts-nocheck
-import { TweenLite } from "gsap";
 import { getMoveIndex, isElHasProperty, getStyleProp } from "../chunks";
+import { tweenTo } from "../chunks/tweenTo";
 import propNames from "../propNames";
 
 const contextMode = (
@@ -18,7 +18,7 @@ const contextMode = (
   const moveCursor = (e: MouseEvent) => {
     // If element is not hovered
     if (!isHovered) {
-      TweenLite.to(cursor, props.transitionSpeed, {
+      tweenTo(cursor, props.transitionSpeed, {
         x: e.clientX - props.radius / 2,
         y: e.clientY - props.radius / 2,
       });
@@ -29,7 +29,7 @@ const contextMode = (
       );
       // For "LIFT" mode
       if (isElHasProperty(cursorTarget, propNames.lift)) {
-        TweenLite.to(cursorTarget, props.transitionSpeed, {
+        tweenTo(cursorTarget, props.transitionSpeed, {
           x: getMoveIndex(
             e.clientX,
             cursorTarget.getBoundingClientRect().left,
@@ -45,7 +45,7 @@ const contextMode = (
           scale: 1.1,
           boxShadow: getStyleProp("--ghost-shadow"),
         });
-        TweenLite.to(cursor, props.transitionSpeed, {
+        tweenTo(cursor, props.transitionSpeed, {
           filter: "blur(8px)",
           x:
             cursorTarget.getBoundingClientRect().left +
@@ -67,7 +67,7 @@ const contextMode = (
         });
         // For default "PARALLAX" mode
       } else {
-        TweenLite.to(cursor, props.transitionSpeed, {
+        tweenTo(cursor, props.transitionSpeed, {
           x:
             cursorTarget.getBoundingClientRect().left -
             (isElHasProperty(cursorTarget, propNames.noPadding)
@@ -106,7 +106,7 @@ const contextMode = (
         });
         // For "NO PARALLAX" property
         if (!isElHasProperty(cursorTarget, propNames.noParallax)) {
-          TweenLite.to(cursorTarget, props.transitionSpeed, {
+          tweenTo(cursorTarget, props.transitionSpeed, {
             x: -getMoveIndex(
               e.clientX,
               cursorTarget.getBoundingClientRect().left,
@@ -134,7 +134,7 @@ const contextMode = (
 
     if (isElHasProperty(cursorTarget, propNames.lift)) {
       cursor.classList.add("c-cursor-lift_active");
-      TweenLite.to(cursor, props.transitionSpeed, {
+      tweenTo(cursor, props.transitionSpeed, {
         borderRadius: borderRadius,
         width: cursorTarget.clientWidth,
         height: cursorTarget.clientHeight,
@@ -150,7 +150,7 @@ const contextMode = (
     cursor.classList.remove("c-cursor_active");
     cursor.classList.remove("c-cursor-lift_active");
 
-    TweenLite.to(cursor, props.transitionSpeed, {
+    tweenTo(cursor, props.transitionSpeed, {
       x: e.clientX - props.radius / 2,
       y: e.clientY - props.radius / 2,
       width: props.radius,
@@ -160,7 +160,7 @@ const contextMode = (
       backgroundImage: "none",
       filter: "blur(0px)",
     });
-    TweenLite.to(cursorTarget, props.transitionSpeed, {
+    tweenTo(cursorTarget, props.transitionSpeed, {
       x: 0,
       y: 0,
       scale: 1,

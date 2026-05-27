@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./geist.css";
 
 .pixelated {
   image-rendering: pixelated;
