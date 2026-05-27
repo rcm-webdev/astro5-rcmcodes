@@ -34,7 +34,7 @@ export function ExperienceSection({ experiences, projects }: SectionProps) {
               value={exp.company}
               className="group rounded-xl border border-neutral-800/70 bg-neutral-950/30 px-5 py-4 transition-[box-shadow,border-color] lg:px-6 lg:py-5 lg:border-neutral-700/70 lg:shadow-lg lg:shadow-black/30 border-b-0"
             >
-              <AccordionTrigger className="w-full cursor-pointer text-left hover:no-underline [&>svg]:hidden">
+              <AccordionTrigger className="group w-full cursor-pointer text-left hover:no-underline [&>svg]:hidden">
                 <div className="flex w-full items-start justify-between gap-6">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
@@ -60,7 +60,8 @@ export function ExperienceSection({ experiences, projects }: SectionProps) {
                     </p>
                   </div>
                   <span className="mt-1 shrink-0 rounded-full border border-neutral-800/70 bg-neutral-900/40 px-3 py-1 text-xs font-medium text-neutral-300 transition">
-                    Expand
+                    <span className="group-data-[state=open]:hidden">Expand</span>
+                    <span className="hidden group-data-[state=open]:inline">Collapse</span>
                   </span>
                 </div>
               </AccordionTrigger>
@@ -193,9 +194,7 @@ export function ExperienceSection({ experiences, projects }: SectionProps) {
                 <p className="mt-3 text-sm font-medium text-neutral-200">
                   Mux demo video (coming soon)
                 </p>
-                <p className="mt-1 text-xs text-neutral-500">
-                  When you upload, we'll drop in the Mux playback id and render the player here.
-                </p>
+                {/* Drop in Mux playback id and render the player here when ready. */}
               </div>
             </div>
 
@@ -208,9 +207,6 @@ export function ExperienceSection({ experiences, projects }: SectionProps) {
               >
                 Visit project →
               </a>
-              <p className="text-xs text-neutral-600">
-                (Demo modal replaces direct navigation so you can show video first.)
-              </p>
             </div>
           </div>
         </DialogContent>
