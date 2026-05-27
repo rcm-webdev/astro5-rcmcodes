@@ -10,7 +10,7 @@ export default function CoffeeChatButton() {
   const closeCal = () => setIsCalOpen(false);
 
   return (
-    <>
+    <div className="w-full">
       <button
         type="button"
         onClick={openCal}
@@ -24,6 +24,6 @@ export default function CoffeeChatButton() {
       </button>
 
       <CalEmbed isOpen={isCalOpen} onClose={closeCal} />
-    </>
+    </div>
   );
 }
