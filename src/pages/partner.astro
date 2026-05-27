@@ -10,7 +10,6 @@ import { PARTNER_EXPECTATIONS, TEAM } from "../data/team";
 import {
   GLASS_CARD_CLASS,
   GLASS_INPUT_CLASS,
-  GLASS_BTN_CLASS,
   GLASS_BTN_PRIMARY_CLASS,
 } from "../data/contact";
 const breadcrumbItems = [
@@ -46,7 +45,6 @@ const breadcrumbItems = [
         name: PROFILE.displayName,
         jobTitle: PROFILE.title,
         url: "https://rcmcodes.com",
-        email: "rcmcodes@gmail.com",
       },
       serviceType: ["Software Development", "Web Development", "Internal Tooling"],
       areaServed: "Worldwide",
@@ -124,9 +122,6 @@ const breadcrumbItems = [
               <div class="mt-10 flex flex-wrap justify-center gap-4 md:justify-start">
                 <a href="#partner-form" class={GLASS_BTN_PRIMARY_CLASS}>
                   Start a project conversation
-                </a>
-                <a href="mailto:rcmcodes@gmail.com" class={GLASS_BTN_CLASS}>
-                  Email directly
                 </a>
               </div>
             </div>
@@ -242,12 +237,7 @@ const breadcrumbItems = [
             </h2>
             <p class="mt-4 text-lg text-neutral-400">
               Share a few details and we'll respond within 24–72 hours with next
-              steps, or reach out at
-              <a
-                href="mailto:rcmcodes@gmail.com"
-                class="text-neutral-200 underline-offset-2 hover:text-white hover:underline"
-                >rcmcodes@gmail.com</a
-              >.
+              steps.
             </p>
 
             <form

@@ -5,20 +5,21 @@ import { PROJECTS } from "../data/projects";
 import { CERTIFICATIONS } from "../data/certifications";
 import Layout from "../layouts/Layout.astro";
 import SkillHub from "../components/SkillHub.astro";
-import { Image } from "astro:assets";
 import CalButton from "../components/CalButton";
-import IconMail from "../components/icons/mail.astro";
 import IconLinks from "../components/icons/links.astro";
-import { CONTACT, HERO_CTA_CLASS, NAV_COPY, TEXT_LINK_CLASS } from "../data/contact";
+import { HERO_CTA_CLASS, NAV_COPY, TEXT_LINK_CLASS } from "../data/contact";
 import { PROFILE } from "../data/profile";
 import { BRAND } from "../data/brand";
-import profileImage from "../../public/profile.png";
 
 const transposeRxProject = PROJECTS.find((p) => p.title === "TransposeRx");
 const kitTrackerProject = PROJECTS.find((p) => p.title === "Kit Tracker");
 
 const getProjectsForCompany = (company: string) =>
   PROJECTS.filter((p) => p.forCompany === company);
+
+const titleMatch = PROFILE.title.match(/^(.+)\s+(\S+)$/);
+const titleLead = titleMatch?.[1] ?? PROFILE.title;
+const titleAccent = titleMatch?.[2];
 ---
 
 <Layout 
@@ -77,7 +78,6 @@ const getProjectsForCompany = (company: string) =>
           "Schema Design"
         ]
       },
-      "email": "rcmcodes@gmail.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Spokane",
@@ -95,30 +95,38 @@ const getProjectsForCompany = (company: string) =>
           class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24"
         >
           <div class="flex flex-col items-center text-center gap-6">
-            <!-- Profile Image -->
-              <Image
-              src={profileImage}
-              alt={PROFILE.imageAlt}
-              class="w-40 h-40 object-cover rounded-xl ring-2 ring-neutral-700/80 pixelated"
-              width={160}
-              height={160}
-              loading="eager"
-              decoding="async"
-              fetchpriority="high"
-            />
-            
-            <!-- Name and Titles -->
-            <div class="flex flex-col items-center gap-2 max-w-sm">
-              <p class="text-sm lg:text-lg font-medium text-neutral-200/60 py-1 px-3 rounded-full bg-neutral-400/10">Hi, I'm {PROFILE.displayName}</p>
+            <div class="flex flex-col items-center gap-3">
+              <img
+                src="/sunglasses_dev.svg"
+                alt="Pixel art avatar with speech bubble Hi I'm Roberto"
+                class="w-full max-w-[16rem] pixelated sm:max-w-[18rem]"
+                width={1024}
+                height={1024}
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+              />
+
+              <!-- Name and Titles -->
+              <div class="flex flex-col items-center gap-2 max-w-sm">
               <a
                 href="/"
                 class="block font-medium tracking-tight text-center"
               >
-                <h2 class="text-3xl lg:text-4xl">{PROFILE.title}</h2>
+                <h2 class="text-3xl lg:text-4xl">
+                  <span class="hero-title-lead">{titleLead}</span>
+                  {titleAccent && (
+                    <>
+                      {" "}
+                      <span class="hero-title-accent">{titleAccent}</span>
+                    </>
+                  )}
+                </h2>
                 <p class="mt-2 text-sm lg:text-base font-normal text-neutral-400 leading-relaxed">
                   {PROFILE.focus}
                 </p>
               </a>
+              </div>
             </div>
 
             <!-- Call to Action Buttons -->
@@ -127,16 +135,6 @@ const getProjectsForCompany = (company: string) =>
               role="group"
               aria-label="Contact options"
             >
-              <a
-                data-ccursor
-                href={`mailto:${CONTACT.email}?subject=${encodeURIComponent(CONTACT.mailtoSubject)}`}
-                class={HERO_CTA_CLASS}
-                aria-label={`Email ${CONTACT.email}`}
-              >
-                <IconMail />
-                <span>{CONTACT.emailCtaLabel}</span>
-              </a>
-
               <CalButton client:load />
 
               <a

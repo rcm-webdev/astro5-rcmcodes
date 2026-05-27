@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "Geist Sans";
+  src: url("../../node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("../../node_modules/geist/dist/fonts/geist-mono/GeistMono-Variable.woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Pixel Square";
+  src: url("../../node_modules/geist/dist/fonts/geist-pixel/GeistPixel-Square.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-geist-sans: "Geist Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-geist-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, monospace;
+  --font-geist-pixel-square: "Geist Pixel Square", "Geist Sans", ui-sans-serif,
+    system-ui, sans-serif;
+}
+
+.font-geist-pixel-square {
+  font-family: var(--font-geist-pixel-square);
+  font-weight: 500;
+}
+
+.hero-title-lead {
+  font-family: var(--font-geist-mono);
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.hero-title-accent {
+  font-family: var(--font-geist-pixel-square);
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1;
+}
