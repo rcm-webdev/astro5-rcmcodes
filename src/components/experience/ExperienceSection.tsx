@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import type { Props as ExperienceProp } from "./props";
 import type { Props as ProjectProp } from "@/components/projects/props";
 import { TEXT_LINK_CLASS } from "@/data/contact";
@@ -168,7 +168,7 @@ export function ExperienceSection({ experiences, projects }: SectionProps) {
                 <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
                   Project demo
                 </p>
-                <h3 className="mt-1 text-lg font-semibold">{demoProject?.title}</h3>
+                <DialogTitle className="mt-1 text-lg font-semibold">{demoProject?.title}</DialogTitle>
                 <p className="mt-2 text-sm leading-relaxed text-neutral-400">
                   {demoProject?.description}
                 </p>
