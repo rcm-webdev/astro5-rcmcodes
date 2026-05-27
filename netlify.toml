@@ -8,12 +8,20 @@
 # Redirect rules for form submissions  
 [[redirects]]
   from = "/partner-success"
-  to = "/partner/success"
-  status = 200
+  to = "/partner/success/"
+  status = 301
 
-# Catch-all redirect for SPA behavior (but preserve existing files)
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Role = ["visitor"], Country = ["!"]} 
+  from = "/partner"
+  to = "/partner/"
+  status = 301
+
+[[redirects]]
+  from = "/partner/success"
+  to = "/partner/success/"
+  status = 301
+
+[[redirects]]
+  from = "/links"
+  to = "/links/"
+  status = 301
