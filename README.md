@@ -1,47 +1,8 @@
-<h2 align="center">
-  <p>Personal Portfolio Website</p>
-  <a href="https://rcmcodes.com" target="_blank">🌐 Visit rcmcodes.com</a>
-</h2>
+# RCMCODES
 
-<div align="center">
-  <img alt="Homepage" src="./public/demo.png" />
-  <img alt="Links page" src="./public/links.png">
-  <img alt="Partnership page" src="./public/partnership.png">
-  <img alt="Performance score" src="./demo/pagespeed-score.png" />
-</div>
+## Version 2
+![Version 2](/public/rcmcodes-v2.png)
 
-## ✨ Key Features
+## Version 1
+![Version 1](/public/rcmcodes-v1.png)
 
-**Portfolio Showcase**
-- Featured projects including Kit Tracker, TransposeRx, Built by NIB, and MMC Communications
-- Experience timeline: Twin Rocks Software Studio, Spokane Eye Clinic, Idaho Urology Institute
-- Skills, education (Whitworth University, B.S. Biochemistry), and Anthropic AI certifications
-
-**Built for Performance**
-- Lightning-fast load times with Astro's static site generation
-- Optimized images and minimal JavaScript
-- Perfect Lighthouse scores across all metrics
-
-**Connect & Collaborate**
-- [Professional Links Hub](https://rcmcodes.com/links) - All social and professional links in one place
-- [Partnership Opportunities](https://rcmcodes.com/partner) - Collaboration and consulting inquiries
-- Direct calendar booking integration for coffee chats and consultations
-
-## 🔗 Quick Links
-
-- **Website**: [rcmcodes.com](https://rcmcodes.com)
-- **GitHub**: [github.com/rcm-webdev](https://github.com/rcm-webdev)
-- **LinkedIn**: [linkedin.com/in/roberto-c-murillo](https://www.linkedin.com/in/roberto-c-murillo/)
-- **Twitter/X**: [@rcmwdev](https://x.com/rcmwdev)
-
-## 🎨 Tech Highlights
-
-Built with modern web technologies for optimal performance:
-- **Framework**: Astro with TypeScript
-- **Styling**: Tailwind CSS
-- **Integrations**: Cal.com booking, custom cursor effects
-- **Deployment**: Optimized for Netlify with perfect SEO scores
-
-<p align="center">
-Code is licensed under MIT, words and images are licensed under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a>.
-</p>
