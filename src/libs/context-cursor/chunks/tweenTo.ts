@@ -20,15 +20,40 @@ const TRANSITION_PROPS = [
   "background-image",
 ].join(", ");
 
+function getCurrentTransform(el: HTMLElement) {
+  const transform = el.style.transform;
+  if (!transform) return {};
+
+  const current: { x?: number; y?: number; scale?: number } = {};
+  const translateX = transform.match(/translateX\(([-\d.]+)px\)/);
+  const translateY = transform.match(/translateY\(([-\d.]+)px\)/);
+  const scale = transform.match(/scale\(([-\d.]+)\)/);
+
+  if (translateX) current.x = parseFloat(translateX[1]);
+  if (translateY) current.y = parseFloat(translateY[1]);
+  if (scale) current.scale = parseFloat(scale[1]);
+
+  return current;
+}
+
 function applyVars(el: HTMLElement, vars: TweenVars) {
-  const transforms: string[] = [];
+  const hasTransformVar =
+    vars.x != null || vars.y != null || vars.scale != null;
 
-  if (vars.x != null) transforms.push(`translateX(${vars.x}px)`);
-  if (vars.y != null) transforms.push(`translateY(${vars.y}px)`);
-  if (vars.scale != null) transforms.push(`scale(${vars.scale})`);
+  if (hasTransformVar) {
+    const current = getCurrentTransform(el);
+    const x = vars.x ?? current.x;
+    const y = vars.y ?? current.y;
+    const scale = vars.scale ?? current.scale;
 
-  if (transforms.length) {
-    el.style.transform = transforms.join(" ");
+    const transforms: string[] = [];
+    if (x != null) transforms.push(`translateX(${x}px)`);
+    if (y != null) transforms.push(`translateY(${y}px)`);
+    if (scale != null) transforms.push(`scale(${scale})`);
+
+    if (transforms.length) {
+      el.style.transform = transforms.join(" ");
+    }
   }
 
   if (vars.width != null) el.style.width = `${vars.width}px`;
