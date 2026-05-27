@@ -13,9 +13,9 @@
 ## ✨ Key Features
 
 **Portfolio Showcase**
-- Featured projects including TransposeRx (ophthalmic prescription tool), Technician's Bootcamp (healthcare LMS), and IntelFlow (no-code AI pipeline builder)
-- Professional experience timeline highlighting roles at 100devs, Spokane Eye Clinic, and Twin Rocks Web Development
-- Speaking engagements and technical presentations
+- Featured projects including Kit Tracker, TransposeRx, Built by NIB, and MMC Communications
+- Experience timeline: Twin Rocks Software Studio, Spokane Eye Clinic, Idaho Urology Institute
+- Skills, education (Whitworth University, B.S. Biochemistry), and Anthropic AI certifications
 
 **Built for Performance**
 - Lightning-fast load times with Astro's static site generation

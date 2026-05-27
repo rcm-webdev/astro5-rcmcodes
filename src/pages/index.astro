@@ -1,77 +1,81 @@
 ---
-import Component from "../components/Component.astro";
+import SocialLinks from "../components/SocialLinks.astro";
 import Experience from "../components/experience/index.astro";
-import Lecture from "../components/lecture/index.astro";
 import Project from "../components/projects/index.astro";
 import { EXPERIENCE } from "../data/experience";
-import { SOCIALS } from "../data/socials";
-import { LECTURE } from "../data/lecture";
 import { PROJECTS } from "../data/projects";
+import { SKILLS } from "../data/skills";
+import { EDUCATION } from "../data/education";
+import { CERTIFICATIONS } from "../data/certifications";
 import Layout from "../layouts/Layout.astro";
 import LogoWall from "../components/logoWall.astro";
-import ArrowDivider from "../components/ArrowDivider.astro";
 import { Image } from "astro:assets";
 import CalButton from "../components/CalButton";
+import { PROFILE } from "../data/profile";
+import profileImage from "../../public/profile.png";
 ---
 
 <Layout 
-  title="Roberto M. - Full Stack Software Engineer | RCM CODES"
+  title={`Roberto Murillo - ${PROFILE.title} | RCM CODES`}
   seo={{
-    description: "Roberto M. is a Full Stack Software Engineer specializing in React, TypeScript, Node.js, and machine learning. Building innovative web applications and custom software solutions in the Inland Northwest.",
+    description: `${PROFILE.title} | ${PROFILE.focus}. Roberto Murillo builds health tech software, clinical workflow tools, and AI-native platforms in Spokane, WA.`,
     canonical: "https://rcmcodes.com/",
     openGraph: {
-      title: "Roberto M. - Full Stack Software Engineer",
-      description: "Full Stack Software Engineer with a deep interest in AI tooling, machine learning, and human-computer interaction. Build with React, TypeScript, and modern web technologies.",
+      title: `Roberto Murillo - ${PROFILE.title}`,
+      description: `${PROFILE.title} | ${PROFILE.focus}`,
       type: "profile"
     },
     structuredData: {
       "@context": "https://schema.org",
       "@type": ["Person", "ProfessionalService"],
-      "name": "Roberto M.",
+      "name": "Roberto Murillo",
       "alternateName": "rcmcodes",
-      "description": "Full Stack Software Engineer with a deep interest in AI tooling, machine learning, and human-computer interaction. Build with React, TypeScript, and modern web technologies.",
+      "description": PROFILE.intro,
       "url": "https://rcmcodes.com",
-      "image": "https://rcmcodes.com/profile.webp",
+      "image": `https://rcmcodes.com${PROFILE.imagePath}`,
       "sameAs": [
-        "https://www.linkedin.com/in/roberto-c-murillo/",
-        "https://github.com/rcmcodes"
+        "https://www.linkedin.com/in/rcmcodes/",
+        "https://github.com/rcm-webdev"
       ],
-      "jobTitle": "Full Stack Software Engineer",
+      "jobTitle": PROFILE.title,
       "worksFor": {
         "@type": "Organization",
-        "name": "100Devs"
+        "name": "Twin Rocks Software Studio"
       },
       "knowsAbout": [
-        "JavaScript",
-        "TypeScript", 
+        "TypeScript",
         "React",
+        "Next.js",
+        "Astro",
         "Node.js",
         "Python",
-        "Machine Learning",
-        "Web Development",
-        "Full Stack Development",
-        "AI Tooling",
-        "Human-Computer Interaction"
+        "PostgreSQL",
+        "Prisma",
+        "Health Tech",
+        "Clinical Workflows",
+        "AI-Native Development",
+        "Internal Tooling"
       ],
       "hasOccupation": {
         "@type": "Occupation",
-        "name": "Full Stack Software Engineer",
+        "name": PROFILE.title,
         "occupationLocation": {
           "@type": "Place",
-          "name": "Inland Northwest"
+          "name": "Spokane, WA"
         },
         "skills": [
-          "React Development",
-          "TypeScript Programming", 
-          "Node.js Backend Development",
-          "Machine Learning Implementation",
-          "Full Stack Web Development"
+          "Full Stack Web Development",
+          "Internal Tooling",
+          "Workflow Automation",
+          "API Design",
+          "Schema Design"
         ]
       },
       "email": "rcmcodes@gmail.com",
       "address": {
         "@type": "PostalAddress",
-        "addressRegion": "Inland Northwest"
+        "addressLocality": "Spokane",
+        "addressRegion": "WA"
       }
     }
   }}
@@ -87,9 +91,9 @@ import CalButton from "../components/CalButton";
           <div class="flex flex-col items-center text-center gap-6">
             <!-- Profile Image -->
               <Image
-              src="/profile.webp"
-              alt="Roberto M. - Full Stack Software Engineer"
-              class="w-40 h-40 object-cover rounded-full"
+              src={profileImage}
+              alt={PROFILE.imageAlt}
+              class="w-40 h-40 object-cover rounded-xl ring-2 ring-neutral-700/80 pixelated"
               width={160}
               height={160}
               loading="eager"
@@ -98,18 +102,21 @@ import CalButton from "../components/CalButton";
             />
             
             <!-- Name and Titles -->
-            <div class="flex flex-col items-center gap-2">
-              <p class="text-sm lg:text-lg font-medium text-neutral-200/60 py-1 px-3 rounded-full bg-neutral-400/10">Hi, I'm Roberto M.</p>
+            <div class="flex flex-col items-center gap-2 max-w-sm">
+              <p class="text-sm lg:text-lg font-medium text-neutral-200/60 py-1 px-3 rounded-full bg-neutral-400/10">Hi, I'm Roberto Murillo</p>
               <a
                 href="/"
-                class="text-3xl lg:text-4xl block font-medium tracking-tight"
+                class="block font-medium tracking-tight text-center"
               >
-                <h2>Full Stack Software Engineer</h2>
+                <h2 class="text-3xl lg:text-4xl">{PROFILE.title}</h2>
+                <p class="mt-2 text-sm lg:text-base font-normal text-neutral-400 leading-relaxed">
+                  {PROFILE.focus}
+                </p>
               </a>
             </div>
 
             <!-- Call to Action Buttons -->
-            <div class="flex flex-col sm:flex-row gap-3 items-center">
+            <div class="flex flex-row flex-wrap justify-center gap-3 items-center">
               <a
                 data-ccursor
                 href="mailto:rcmcodes@gmail.com?subject=Hey 👋 I'm interested in hiring you, let's talk!"
@@ -130,30 +137,6 @@ import CalButton from "../components/CalButton";
               <LogoWall />
             </div>
 
-            <!-- Social Icons -->
-            {
-              SOCIALS.length && (
-                <ul
-                  class="mt-4 flex items-center justify-center gap-x-5"
-                  aria-label="Social media"
-                >
-                  {SOCIALS.map((social) => (
-                    <li class="text-xs p-2 rounded" data-ccursor>
-                      <a
-                        class="block hover:text-slate-200"
-                        href={social.url}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        aria-label={`${social.name} (opens in a new tab)`}
-                      >
-                        <span class="sr-only">{social.name}</span>
-                        {<Component component={social.icon} />}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )
-            }
           </div>
         </header>
 
@@ -175,15 +158,11 @@ import CalButton from "../components/CalButton";
             </div>
             <div>
               <div>
-                <p class="text-lg font-medium">
-              
-I'm an Inland Northwest-based <span class="shiny-sec">full stack software engineer</span>. I have a deep interest in AI tooling, machine learning, and human-computer interaction.
+                <p class="text-lg font-medium leading-relaxed">
+                  {PROFILE.intro}
                 </p>
               </div>
           </section>
-
-          <!-- Section Divider -->
-          <ArrowDivider />
 
           <!-- About Me Section -->
           <section
@@ -204,24 +183,54 @@ I'm an Inland Northwest-based <span class="shiny-sec">full stack software engine
               <div class="mb-4 space-y-4">
                 
                 <p>
-                  After earning my B.S. in Biochemistry, I spent over two and a half years working as an ophthalmic technician at a local eye clinic, where I gained firsthand experience in patient care and clinical operations. Alongside that role, I began applying full-stack web development skills to build internal tools that streamlined technician workflows, reduced onboarding time, and minimized errors. That experience revealed how technology can transform healthcare delivery and inspired me to focus my career on creating intuitive, intelligent software that improves both staff efficiency and patient access to care.
-                  
-                  <!-- Today, I work with 100Devs, a development agency where I collaborate
-                  with developers globally. Thus far, I have shipped multiple full-stack
-                  applications independently and in cross-functional teams. As well
-                  as successfully delivered production-ready web applications for
-                  several paid clients, aligning closely with their business goals
-                  and user needs.<br /> -->
+                  After earning my B.S. in Biochemistry from Whitworth University, I started in healthcare as a medical scribe at Idaho Urology Institute, where I built the clinic's first structured training system. That work led me into clinical operations at Spokane Eye Clinic, where I ship production tools like TransposeRx (an LMS for technician onboarding) and Kit Tracker (QR-based inventory for procedure supplies).
                 </p>
                 <p>
-                  I’m always open to new opportunities and look forward to joining a team that values innovation, collaboration, and real-world impact.
+                  As Technical Lead at Twin Rocks Software Studio, I partner with small and medium businesses to replace manual spreadsheets, paper checklists, and word-of-mouth-only workflows with centralized platforms, from lead-generation sites to quoting systems and field audit tools.
+                </p>
+                <p>
+                  I'm open to roles where software directly improves how teams operate day to day.
                 </p>
               </div>
             </div>
           </section>
 
-          <!-- Section Divider -->
-          <ArrowDivider />
+          <!-- Skills -->
+          <section
+            id="skills"
+            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-4 lg:scroll-mt-24"
+            aria-label="Skills"
+          >
+            <div
+              class="section-header sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+            >
+              <h2
+                class="text-sm font-bold uppercase tracking-widest text-neutral-200 lg:sr-only"
+              >
+                Skills
+              </h2>
+            </div>
+            <div class="space-y-6">
+              {
+                SKILLS.map((group) => (
+                  <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wide text-neutral-400 mb-2">
+                      {group.category}
+                    </h3>
+                    <ul class="flex flex-wrap gap-2" aria-label={group.category}>
+                      {group.items.map((skill) => (
+                        <li>
+                          <div class="flex items-center backdrop-blur-sm rounded-full border border-neutral-700 border-opacity-50 shadow bg-neutral-400/10 px-3 py-1 text-xs font-medium leading-5 text-neutral-300">
+                            {skill}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              }
+            </div>
+          </section>
 
           <!-- Experience -->
           <section
@@ -244,34 +253,6 @@ I'm an Inland Northwest-based <span class="shiny-sec">full stack software engine
             </div>
           </section>
 
-          <!-- Section Divider -->
-          <ArrowDivider />
-
-          <!-- Speaking Engagements -->
-          <section
-            id="lecture"
-            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-4 lg:scroll-mt-24"
-            aria-label="Lectures"
-          >
-            <div
-              class="section-header sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
-            >
-              <h2
-                class="text-sm font-bold uppercase tracking-widest text-neutral-200 lg:sr-only"
-              >
-                Speaking Engagements
-              </h2>
-            </div>
-            <div>
-              <ol class="group/list space-y-12">
-                {LECTURE.map((lecture) => <Lecture {...lecture} />)}
-              </ol>
-            </div>
-          </section>
-
-          <!-- Section Divider -->
-          <ArrowDivider />
-
           <!-- Featured Projects -->
           <section
             id="applications"
@@ -292,43 +273,84 @@ I'm an Inland Northwest-based <span class="shiny-sec">full stack software engine
                 {PROJECTS.map((project) => <Project {...project} />)}
               </ol>
             </div>
-            <!-- Resume -->
-            <!-- <div class="mt-12">
-              <a
-                data-ccursor
-                class="inline-flex items-center leading-tight text-neutral-200 font-semibold group p-2 rounded px-3"
-                aria-label="View Full Résumé"
-                target="_blank"
-                rel="noreferrer noopener"
-                href="./resume.pdf"
+          </section>
+
+          <!-- Education -->
+          <section
+            id="education"
+            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-4 lg:scroll-mt-24"
+            aria-label="Education"
+          >
+            <div
+              class="section-header sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+            >
+              <h2
+                class="text-sm font-bold uppercase tracking-widest text-neutral-200 lg:sr-only"
               >
-                <span>
-                  <span
-                    class="border-b border-transparent pb-px transition group-hover:border-neutral-300 motion-reduce:transition-none"
-                  >
-                    View Full
-                  </span>
-                  <span class="whitespace-nowrap">
-                    <span
-                      class="border-b border-transparent pb-px transition group-hover:border-neutral-300 motion-reduce:transition-none"
-                    >
-                      Résumé
-                    </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      class="ml-1 inline-block h-4 w-4 shrink-0 -translate-y-px transition-transform group-hover:translate-x-2 group-focus-visible:translate-x-2 motion-reduce:transition-none"
-                      aria-hidden="true"
-                      ><path
-                        fill-rule="evenodd"
-                        d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                        clip-rule="evenodd"></path></svg
-                    ></span
-                  ></span
-                ></a
+                Education
+              </h2>
+            </div>
+            <ol class="space-y-6">
+              {
+                EDUCATION.map((entry) => (
+                  <li>
+                    <p class="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+                      {entry.dates}
+                    </p>
+                    <h3 class="mt-1 font-medium text-neutral-200">
+                      <a
+                        href={entry.schoolUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        class="hover:text-neutral-300"
+                      >
+                        {entry.school}
+                      </a>
+                      <span class="text-neutral-400"> · {entry.degree}</span>
+                    </h3>
+                  </li>
+                ))
+              }
+            </ol>
+          </section>
+
+          <!-- Certifications -->
+          <section
+            id="certifications"
+            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+            aria-label="Certifications"
+          >
+            <div
+              class="section-header sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+            >
+              <h2
+                class="text-sm font-bold uppercase tracking-widest text-neutral-200 lg:sr-only"
               >
-            </div> -->
+                Certifications
+              </h2>
+            </div>
+            <ol class="space-y-6">
+              {
+                CERTIFICATIONS.map((cert) => (
+                  <li>
+                    <p class="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+                      {cert.dates}
+                    </p>
+                    <h3 class="mt-1 font-medium text-neutral-200">
+                      <a
+                        href={cert.credentialUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        class="hover:text-neutral-300"
+                      >
+                        {cert.name}
+                      </a>
+                      <span class="text-neutral-400"> · {cert.issuer}</span>
+                    </h3>
+                  </li>
+                ))
+              }
+            </ol>
           </section>
           <footer class="max-w-md pb-16 text-sm text-neutral-500 sm:pb-0">
             <p>
@@ -353,8 +375,11 @@ I'm an Inland Northwest-based <span class="shiny-sec">full stack software engine
     </div>
   </div>
 
-  <footer class="text-center py-4 text-xs">
-    {new Date().getFullYear()}. All rights reserved.
+  <footer class="relative z-10 border-t border-neutral-800/60 text-center py-10 px-6">
+    <SocialLinks />
+    <p class="mt-6 text-xs text-neutral-500">
+      {new Date().getFullYear()}. All rights reserved.
+    </p>
   </footer>
 </Layout>
 
@@ -419,12 +444,20 @@ I'm an Inland Northwest-based <span class="shiny-sec">full stack software engine
       z-index: 13;
     }
     
-    #lecture .section-header {
+    #skills .section-header {
       z-index: 12;
     }
-    
+
     #applications .section-header {
       z-index: 11;
+    }
+
+    #education .section-header {
+      z-index: 10;
+    }
+
+    #certifications .section-header {
+      z-index: 9;
     }
   }
 

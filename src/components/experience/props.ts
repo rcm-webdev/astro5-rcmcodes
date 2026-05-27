@@ -4,6 +4,7 @@ export interface Props {
   company: string;
   companyUrl: string;
   description: string;
+  highlights?: string[];
   technologies: string[];
   logo?: string;
 }
