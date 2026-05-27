@@ -5,4 +5,6 @@ export interface Props {
   tags: string[];
   logo?: string;
   type: string;
+  forCompany?: string;
+  muxPlaybackId?: string;
 }
