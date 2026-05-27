@@ -1,53 +1,75 @@
 ---
 export interface BreadcrumbItem {
-  name: string;
-  href: string;
+  label: string;
+  href?: string;
 }
 
 interface Props {
   items: BreadcrumbItem[];
+  class?: string;
 }
 
-const { items } = Astro.props;
+const { items, class: className } = Astro.props;
 
-// Generate structured data for breadcrumbs
+const siteOrigin = "https://rcmcodes.com";
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": items.map((item, index) => ({
-    "@type": "ListItem",
-    "position": index + 1,
-    "name": item.name,
-    "item": `https://rcmcodes.com${item.href}`
-  }))
+  itemListElement: items.map((item, index) => {
+    const isLast = index === items.length - 1;
+    const itemUrl =
+      item.href ?? (isLast ? `${siteOrigin}${Astro.url.pathname}` : undefined);
+
+    return {
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      ...(itemUrl ? { item: itemUrl.startsWith("http") ? itemUrl : `${siteOrigin}${itemUrl}` } : {}),
+    };
+  }),
 };
 ---
 
-<nav aria-label="Breadcrumb" class="mb-8">
-  <ol class="flex items-center space-x-2 text-sm text-neutral-400">
-    {items.map((item, index) => (
-      <li class="flex items-center">
-        {index > 0 && (
-          <svg class="w-4 h-4 mx-2 text-neutral-600" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-          </svg>
-        )}
-        {index === items.length - 1 ? (
-          <span class="text-neutral-200 font-medium" aria-current="page">
-            {item.name}
-          </span>
-        ) : (
-          <a 
-            href={item.href} 
-            class="hover:text-neutral-200 transition-colors duration-200"
-          >
-            {item.name}
-          </a>
-        )}
-      </li>
-    ))}
+<nav aria-label="Breadcrumb" class:list={["mb-8", className]}>
+  <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-neutral-400">
+    {
+      items.map((item, index) => {
+        const isLast = index === items.length - 1;
+
+        return (
+          <li class="flex items-center gap-x-2">
+            {index > 0 && (
+              <svg
+                class="h-4 w-4 shrink-0 text-neutral-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            )}
+            {isLast ? (
+              <span class="text-neutral-100" aria-current="page">
+                {item.label}
+              </span>
+            ) : (
+              <a
+                href={item.href}
+                class="transition-colors hover:text-neutral-100 focus-visible:text-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500/50"
+              >
+                {item.label}
+              </a>
+            )}
+          </li>
+        );
+      })
+    }
   </ol>
 </nav>
 
-<!-- Breadcrumb Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} /> 
+<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />

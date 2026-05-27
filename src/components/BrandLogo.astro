@@ -1,0 +1,58 @@
+---
+import { BRAND } from "../data/brand";
+
+interface Props {
+  class?: string;
+  imgClass?: string;
+  /** icon = link row; hero = partner headline; success = thank-you */
+  variant?: "icon" | "hero" | "success";
+  loading?: "eager" | "lazy";
+  /** Decorative (e.g. beside visible link text) */
+  decorative?: boolean;
+}
+
+const {
+  class: wrapperClass = "",
+  imgClass = "",
+  variant = "icon",
+  loading = "lazy",
+  decorative = false,
+} = Astro.props;
+
+/** icon/hero/success: light pill — raster mark is dark-on-transparent */
+const variantClasses: Record<NonNullable<Props["variant"]>, string> = {
+  icon: `${BRAND.logoIconSlotClass} inline-flex shrink-0 items-center justify-center`,
+  hero: `${BRAND.logoSlotClass} shrink-0 p-2 md:p-2.5`,
+  success: `${BRAND.logoSlotClass} shrink-0 p-2 md:p-2.5`,
+};
+
+const imgVariantClasses: Record<NonNullable<Props["variant"]>, string> = {
+  icon: "h-8 w-8 object-contain",
+  hero: "h-18 w-18 object-contain md:h-24 md:w-24",
+  success: "h-18 w-18 object-contain md:h-24 md:w-24",
+};
+
+const dimensions: Record<
+  NonNullable<Props["variant"]>,
+  { width: number; height: number }
+> = {
+  icon: { width: 32, height: 32 },
+  hero: { width: 96, height: 96 },
+  success: { width: 96, height: 96 },
+};
+---
+
+<span
+  class:list={[variantClasses[variant], wrapperClass]}
+  aria-hidden={decorative ? "true" : undefined}
+>
+  <img
+    src={BRAND.logoPath}
+    alt={decorative ? "" : BRAND.logoAlt}
+    class:list={[imgVariantClasses[variant], imgClass]}
+    width={dimensions[variant].width}
+    height={dimensions[variant].height}
+    loading={loading}
+    decoding="async"
+  />
+</span>

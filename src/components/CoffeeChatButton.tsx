@@ -1,5 +1,28 @@
 import { useState } from "react";
 import CalEmbed from "./CalEmbed";
+import { CONTACT, LINK_ICON_CLASS, LINK_ROW_CLASS } from "../data/contact";
+
+function CoffeeIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-[18px] w-[18px] text-neutral-400 transition-colors group-hover:text-neutral-200"
+      aria-hidden="true"
+    >
+      <path d="M10 2v2" />
+      <path d="M14 2v2" />
+      <path d="M16 8a4 4 0 0 1-8 0V6h8v2Z" />
+      <path d="M6 8H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-2" />
+      <path d="M6 14h12v4H6z" />
+    </svg>
+  );
+}
 
 export default function CoffeeChatButton() {
   const [isCalOpen, setIsCalOpen] = useState(false);
@@ -10,24 +33,18 @@ export default function CoffeeChatButton() {
   return (
     <>
       <button
+        type="button"
         onClick={openCal}
-        className="flex items-center w-full p-4 bg-[#292929] hover:bg-[#292929]/80 rounded-xl transition-colors duration-200"
+        className={LINK_ROW_CLASS}
+        aria-label={CONTACT.coffeeChatAriaLabel}
       >
-        <div className="w-6 h-6 mr-4 flex-shrink-0 text-white">
-          <svg 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="currentColor"
-            className="w-full h-full object-contain"
-          >
-            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-          </svg>
-        </div>
-        <span className="text-white font-medium">30 min Coffee Chat</span>
+        <span className={LINK_ICON_CLASS}>
+          <CoffeeIcon />
+        </span>
+        <span>{CONTACT.coffeeChatLabel}</span>
       </button>
-      
+
       <CalEmbed isOpen={isCalOpen} onClose={closeCal} />
     </>
   );
-} 
+}

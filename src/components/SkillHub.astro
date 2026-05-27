@@ -1,0 +1,92 @@
+---
+import { CAROUSEL_SKILLS, getSkillIconUrl } from "../data/skills";
+
+const ICON_COLOR = "737373";
+
+/** Duplicate for seamless infinite marquee (translateX -50%). */
+const marqueeItems = [...CAROUSEL_SKILLS, ...CAROUSEL_SKILLS];
+---
+
+<div
+  id="skill-hub"
+  class="skill-hub relative w-full max-w-sm overflow-hidden py-4"
+  aria-label="Tech stack"
+>
+  <div
+    class="pointer-events-none absolute inset-y-0 left-0 z-20 w-12 bg-gradient-to-r from-background to-transparent"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute inset-y-0 right-0 z-20 w-12 bg-gradient-to-l from-background to-transparent"
+    aria-hidden="true"
+  >
+  </div>
+
+  <ul
+    class="skill-hub-track flex w-max list-none items-center gap-8 md:gap-10"
+    role="list"
+  >
+    {
+      marqueeItems.map((skill) => {
+        const iconUrl = getSkillIconUrl(skill, ICON_COLOR)!;
+
+        return (
+          <li class="shrink-0">
+            <span
+              class="group flex h-8 w-8 items-center justify-center"
+              title={skill.name}
+            >
+              <img
+                src={iconUrl}
+                alt=""
+                width={28}
+                height={28}
+                class="h-7 w-7 object-contain opacity-65 transition-[opacity,filter] duration-200 group-hover:opacity-100 group-hover:brightness-125"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="sr-only">{skill.name}</span>
+            </span>
+          </li>
+        );
+      })
+    }
+  </ul>
+</div>
+
+<style>
+  @keyframes skill-hub-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .skill-hub-track {
+    animation: skill-hub-scroll 45s linear infinite;
+  }
+
+  .skill-hub:hover .skill-hub-track {
+    animation-play-state: paused;
+  }
+
+  @media (min-width: 768px) {
+    .skill-hub-track {
+      animation-duration: 38s;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skill-hub-track {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 100%;
+      gap: 0.75rem;
+    }
+  }
+</style>

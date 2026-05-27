@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import SparklesCore from "../components/SparklesCore.tsx";
 import SEO, { type SEOProps } from "../components/SEO.astro";
+import { PROFILE } from "../data/profile";
 
 interface Props {
   title: string;
@@ -13,7 +14,7 @@ const { title, seo = {} } = Astro.props;
 // Default SEO values
 const defaultSEO: SEOProps = {
   title,
-  description: "Roberto Murillo | Full Stack Engineer | Health Tech · Clinical Workflows · AI-Native Development",
+  description: `${PROFILE.displayName} | ${PROFILE.title} | ${PROFILE.focus}`,
   canonical: "https://rcmcodes.com/",
   ...seo
 };
