@@ -20,6 +20,10 @@ const getProjectsForCompany = (company: string) =>
 const titleMatch = PROFILE.title.match(/^(.+)\s+(\S+)$/);
 const titleLead = titleMatch?.[1] ?? PROFILE.title;
 const titleAccent = titleMatch?.[2];
+
+/** Mobile section labels — static (not sticky) to avoid sticky handoff jitter */
+const SECTION_HEADER_CLASS =
+  "section-header -mx-6 mb-4 px-6 py-3 md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0";
 ---
 
 <Layout 
@@ -163,7 +167,7 @@ const titleAccent = titleMatch?.[2];
             aria-label="Introduction"
           >
           <div
-              class="section-header sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+              class={SECTION_HEADER_CLASS}
             >
               <h2
                 class="text-sm font-bold uppercase tracking-widest text-neutral-200 lg:sr-only"
@@ -185,7 +189,7 @@ const titleAccent = titleMatch?.[2];
             aria-label="About me"
           >
             <div
-              class="section-header sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+              class={SECTION_HEADER_CLASS}
             >
               <h2
                 class="text-sm font-bold uppercase tracking-widest text-neutral-200 lg:sr-only"
@@ -244,7 +248,7 @@ const titleAccent = titleMatch?.[2];
             aria-label="Work experience"
           >
             <div
-              class="section-header sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+              class={SECTION_HEADER_CLASS}
             >
               <h2
                 class="text-sm font-bold uppercase tracking-widest text-neutral-200 lg:sr-only"
@@ -401,7 +405,7 @@ const titleAccent = titleMatch?.[2];
             aria-label="Certifications"
           >
             <div
-              class="section-header sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+              class={SECTION_HEADER_CLASS}
             >
               <h2
                 class="text-sm font-bold uppercase tracking-widest text-neutral-200 lg:sr-only"
@@ -580,8 +584,6 @@ const titleAccent = titleMatch?.[2];
     background-image: url(/pattern.svg);
     background-position: top center;
     background-repeat: no-repeat;
-    overflow-y: visible;
-    overflow-x: clip;
   }
 
   .shiny-sec {
@@ -603,32 +605,11 @@ const titleAccent = titleMatch?.[2];
     }
   }
 
-  /* Fix for mobile sticky headers stacking issue */
+  /* Static section labels on mobile/tablet — avoids sticky handoff bounce */
   @media (max-width: 1023px) {
     .section-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(23, 23, 23, 0.8);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    /* Ensure each section header has a unique z-index to prevent stacking */
-    #introduction .section-header {
-      z-index: 15;
-    }
-    
-    #about .section-header {
-      z-index: 14;
-    }
-    
-    #experience .section-header {
-      z-index: 13;
-    }
-
-    #certifications .section-header {
-      z-index: 9;
+      background: rgb(23 23 23 / 0.92);
+      border-bottom: 1px solid rgb(255 255 255 / 0.1);
     }
   }
 

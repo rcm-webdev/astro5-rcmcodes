@@ -5,11 +5,14 @@ import IconLinkedin from "../components/icons/linkedin.astro";
 import CoffeeChatButton from "../components/CoffeeChatButton";
 import SocialLinks from "../components/SocialLinks.astro";
 import { Image } from "astro:assets";
-import profileImage from "../../public/profile.png";
 import rmLogo from "../../public/logos/rcmcodes_white.svg";
 import BrandLogo from "../components/BrandLogo.astro";
 import { PROFILE } from "../data/profile";
 import { LINK_LABELS, LINK_ROW_CLASS, LINK_ICON_CLASS } from "../data/contact";
+
+const titleMatch = PROFILE.title.match(/^(.+)\s+(\S+)$/);
+const titleLead = titleMatch?.[1] ?? PROFILE.title;
+const titleAccent = titleMatch?.[2];
 
 const breadcrumbItems = [
   { label: "Home", href: "/" },
@@ -53,27 +56,33 @@ const breadcrumbItems = [
       <Breadcrumbs items={breadcrumbItems} class="w-full" />
 
       <header class="mb-8 text-center">
-        <Image
-          src={profileImage}
-          alt={PROFILE.imageAlt}
-          class="mx-auto h-24 w-24 rounded-xl object-cover ring-2 ring-neutral-700/80 pixelated"
-          width={192}
-          height={192}
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-        />
+        <div class="flex flex-col items-center gap-3">
+          <img
+            src="/sunglasses_dev.svg"
+            alt="Pixel art avatar with speech bubble Hi I'm Roberto"
+            class="mx-auto w-full max-w-[12rem] pixelated sm:max-w-[14rem]"
+            width={1024}
+            height={1024}
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
 
-        <h1
-          class="mt-6 inline-block rounded-full bg-neutral-400/10 px-3 py-1 text-sm font-medium text-neutral-200/80"
-        >
-          Connect with {PROFILE.displayName}
-        </h1>
-
-        <p class="mt-3 text-sm text-neutral-400">{PROFILE.title}</p>
-        <p class="mt-2 px-2 text-xs leading-relaxed text-neutral-500">
-          {PROFILE.focus}
-        </p>
+          <div class="flex flex-col items-center gap-2 max-w-sm">
+            <h1 class="text-2xl font-medium tracking-tight sm:text-3xl">
+              <span class="hero-title-lead">{titleLead}</span>
+              {titleAccent && (
+                <>
+                  {" "}
+                  <span class="hero-title-accent">{titleAccent}</span>
+                </>
+              )}
+            </h1>
+            <p class="px-2 text-sm font-normal leading-relaxed text-neutral-400">
+              {PROFILE.focus}
+            </p>
+          </div>
+        </div>
       </header>
 
       <div
@@ -84,7 +93,7 @@ const breadcrumbItems = [
         </p>
       </div>
 
-      <nav class="mb-10 space-y-3" aria-label="Professional links">
+      <nav class="mb-10 flex flex-col gap-3" aria-label="Professional links">
         <a
           href="https://rcmcodes.com"
           target="_blank"
@@ -147,6 +156,7 @@ const breadcrumbItems = [
 
 <style>
   .links-hub {
+    font-family: var(--font-geist-sans);
     background-image: url(/pattern.svg);
     background-position: top center;
     background-repeat: no-repeat;
